@@ -1,0 +1,1500 @@
+frame #: 1
+(0,0):
+<thing> Fred
+frame #: 2
+(0,0):
+<thing> Fred "1 < 2"
+frame #: 3
+(0,0):
+<thing> Fred "1 <= 1"
+frame #: 4
+(0,0):
+<thing> Fred "1 = "1""
+frame #: 5
+(0,0):
+<thing> Fred "2 = "2""
+frame #: 6
+(0,0):
+<thing> Fred ""this" = "that""
+frame #: 7
+(0,0):
+<thing> Fred "And"
+frame #: 8
+(0,0):
+<thing> Fred "Or"
+frame #: 9
+(0,0):
+<thing> Fred "Not"
+frame #: 10
+(0,0):
+<thing> Fred "Not"
+frame #: 11
+(0,0):
+<thing> Fred "Not"
+frame #: 12
+(0,0):
+<thing> Fred "Not"
+frame #: 13
+(0,0):
+<thing> Fred "Not"
+frame #: 14
+(0,0):
+<thing> Fred "Not"
+frame #: 15
+(0,0):
+<thing> Fred "Not"
+frame #: 16
+(0,0):
+<thing> Fred "Not"
+frame #: 17
+(0,0):
+<thing> Fred "Not"
+frame #: 18
+(0,0):
+<thing> Fred "Not"
+frame #: 19
+(0,0):
+<thing> Fred "Not"
+frame #: 20
+(0,0):
+<thing> Fred "Not"
+frame #: 21
+(0,0):
+<thing> Fred "Not"
+frame #: 22
+(0,0):
+<thing> Fred "Not"
+frame #: 23
+(0,0):
+<thing> Fred "Not"
+frame #: 24
+(0,0):
+<thing> Fred "Not"
+frame #: 25
+(0,0):
+<thing> Fred "Not"
+frame #: 26
+(0,0):
+<thing> Fred "Not"
+frame #: 27
+(0,0):
+<thing> Fred "Not"
+frame #: 28
+(0,0):
+<thing> Fred "Not"
+frame #: 29
+(0,0):
+<thing> Fred "Not"
+frame #: 30
+(0,0):
+<thing> Fred "Not"
+frame #: 31
+(0,0):
+<thing> Fred "Not"
+frame #: 32
+(0,0):
+<thing> Fred "Not"
+frame #: 33
+(0,0):
+<thing> Fred "Not"
+frame #: 34
+(0,0):
+<thing> Fred "Not"
+frame #: 35
+(0,0):
+<thing> Fred "Not"
+frame #: 36
+(0,0):
+<thing> Fred "Not"
+frame #: 37
+(0,0):
+<thing> Fred "Not"
+frame #: 38
+(0,0):
+<thing> Fred "Not"
+frame #: 39
+(0,0):
+<thing> Fred "Not"
+frame #: 40
+(0,0):
+<thing> Fred "Not"
+frame #: 41
+(0,0):
+<thing> Fred "Not"
+frame #: 42
+(0,0):
+<thing> Fred "Not"
+frame #: 43
+(0,0):
+<thing> Fred "Not"
+frame #: 44
+(0,0):
+<thing> Fred "Not"
+frame #: 45
+(0,0):
+<thing> Fred "Not"
+frame #: 46
+(0,0):
+<thing> Fred "Not"
+frame #: 47
+(0,0):
+<thing> Fred "Not"
+frame #: 48
+(0,0):
+<thing> Fred "Not"
+frame #: 49
+(0,0):
+<thing> Fred "Not"
+frame #: 50
+(0,0):
+<thing> Fred "Not"
+frame #: 51
+(0,0):
+<thing> Fred "Not"
+frame #: 52
+(0,0):
+<thing> Fred "Not"
+frame #: 53
+(0,0):
+<thing> Fred "Not"
+frame #: 54
+(0,0):
+<thing> Fred "Not"
+frame #: 55
+(0,0):
+<thing> Fred "Not"
+frame #: 56
+(0,0):
+<thing> Fred "Not"
+frame #: 57
+(0,0):
+<thing> Fred "Not"
+frame #: 58
+(0,0):
+<thing> Fred "Not"
+frame #: 59
+(0,0):
+<thing> Fred "Not"
+frame #: 60
+(0,0):
+<thing> Fred "Not"
+frame #: 61
+(0,0):
+<thing> Fred "Not"
+frame #: 62
+(0,0):
+<thing> Fred "Not"
+frame #: 63
+(0,0):
+<thing> Fred "Not"
+frame #: 64
+(0,0):
+<thing> Fred "Not"
+frame #: 65
+(0,0):
+<thing> Fred "Not"
+frame #: 66
+(0,0):
+<thing> Fred "Not"
+frame #: 67
+(0,0):
+<thing> Fred "Not"
+frame #: 68
+(0,0):
+<thing> Fred "Not"
+frame #: 69
+(0,0):
+<thing> Fred "Not"
+frame #: 70
+(0,0):
+<thing> Fred "Not"
+frame #: 71
+(0,0):
+<thing> Fred "Not"
+frame #: 72
+(0,0):
+<thing> Fred "Not"
+frame #: 73
+(0,0):
+<thing> Fred "Not"
+frame #: 74
+(0,0):
+<thing> Fred "Not"
+frame #: 75
+(0,0):
+<thing> Fred "Not"
+frame #: 76
+(0,0):
+<thing> Fred "Not"
+frame #: 77
+(0,0):
+<thing> Fred "Not"
+frame #: 78
+(0,0):
+<thing> Fred "Not"
+frame #: 79
+(0,0):
+<thing> Fred "Not"
+frame #: 80
+(0,0):
+<thing> Fred "Not"
+frame #: 81
+(0,0):
+<thing> Fred "Not"
+frame #: 82
+(0,0):
+<thing> Fred "Not"
+frame #: 83
+(0,0):
+<thing> Fred "Not"
+frame #: 84
+(0,0):
+<thing> Fred "Not"
+frame #: 85
+(0,0):
+<thing> Fred "Not"
+frame #: 86
+(0,0):
+<thing> Fred "Not"
+frame #: 87
+(0,0):
+<thing> Fred "Not"
+frame #: 88
+(0,0):
+<thing> Fred "Not"
+frame #: 89
+(0,0):
+<thing> Fred "Not"
+frame #: 90
+(0,0):
+<thing> Fred "Not"
+frame #: 91
+(0,0):
+<thing> Fred "Not"
+frame #: 92
+(0,0):
+<thing> Fred "Not"
+frame #: 93
+(0,0):
+<thing> Fred "Not"
+frame #: 94
+(0,0):
+<thing> Fred "Not"
+frame #: 95
+(0,0):
+<thing> Fred "Not"
+frame #: 96
+(0,0):
+<thing> Fred "Not"
+frame #: 97
+(0,0):
+<thing> Fred "Not"
+frame #: 98
+(0,0):
+<thing> Fred "Not"
+frame #: 99
+(0,0):
+<thing> Fred "Not"
+frame #: 100
+(0,0):
+<thing> Fred "Not"
+frame #: 101
+(0,0):
+<thing> Fred "Not"
+frame #: 102
+(0,0):
+<thing> Fred "Not"
+frame #: 103
+(0,0):
+<thing> Fred "Not"
+frame #: 104
+(0,0):
+<thing> Fred "Not"
+frame #: 105
+(0,0):
+<thing> Fred "Not"
+frame #: 106
+(0,0):
+<thing> Fred "Not"
+frame #: 107
+(0,0):
+<thing> Fred "Not"
+frame #: 108
+(0,0):
+<thing> Fred "Not"
+frame #: 109
+(0,0):
+<thing> Fred "Not"
+frame #: 110
+(0,0):
+<thing> Fred "Not"
+frame #: 111
+(0,0):
+<thing> Fred "Not"
+frame #: 112
+(0,0):
+<thing> Fred "Not"
+frame #: 113
+(0,0):
+<thing> Fred "Not"
+frame #: 114
+(0,0):
+<thing> Fred "Not"
+frame #: 115
+(0,0):
+<thing> Fred "Not"
+frame #: 116
+(0,0):
+<thing> Fred "Not"
+frame #: 117
+(0,0):
+<thing> Fred "Not"
+frame #: 118
+(0,0):
+<thing> Fred "Not"
+frame #: 119
+(0,0):
+<thing> Fred "Not"
+frame #: 120
+(0,0):
+<thing> Fred "Not"
+frame #: 121
+(0,0):
+<thing> Fred "Not"
+frame #: 122
+(0,0):
+<thing> Fred "Not"
+frame #: 123
+(0,0):
+<thing> Fred "Not"
+frame #: 124
+(0,0):
+<thing> Fred "Not"
+frame #: 125
+(0,0):
+<thing> Fred "Not"
+frame #: 126
+(0,0):
+<thing> Fred "Not"
+frame #: 127
+(0,0):
+<thing> Fred "Not"
+frame #: 128
+(0,0):
+<thing> Fred "Not"
+frame #: 129
+(0,0):
+<thing> Fred "Not"
+frame #: 130
+(0,0):
+<thing> Fred "Not"
+frame #: 131
+(0,0):
+<thing> Fred "Not"
+frame #: 132
+(0,0):
+<thing> Fred "Not"
+frame #: 133
+(0,0):
+<thing> Fred "Not"
+frame #: 134
+(0,0):
+<thing> Fred "Not"
+frame #: 135
+(0,0):
+<thing> Fred "Not"
+frame #: 136
+(0,0):
+<thing> Fred "Not"
+frame #: 137
+(0,0):
+<thing> Fred "Not"
+frame #: 138
+(0,0):
+<thing> Fred "Not"
+frame #: 139
+(0,0):
+<thing> Fred "Not"
+frame #: 140
+(0,0):
+<thing> Fred "Not"
+frame #: 141
+(0,0):
+<thing> Fred "Not"
+frame #: 142
+(0,0):
+<thing> Fred "Not"
+frame #: 143
+(0,0):
+<thing> Fred "Not"
+frame #: 144
+(0,0):
+<thing> Fred "Not"
+frame #: 145
+(0,0):
+<thing> Fred "Not"
+frame #: 146
+(0,0):
+<thing> Fred "Not"
+frame #: 147
+(0,0):
+<thing> Fred "Not"
+frame #: 148
+(0,0):
+<thing> Fred "Not"
+frame #: 149
+(0,0):
+<thing> Fred "Not"
+frame #: 150
+(0,0):
+<thing> Fred "Not"
+frame #: 151
+(0,0):
+<thing> Fred "Not"
+frame #: 152
+(0,0):
+<thing> Fred "Not"
+frame #: 153
+(0,0):
+<thing> Fred "Not"
+frame #: 154
+(0,0):
+<thing> Fred "Not"
+frame #: 155
+(0,0):
+<thing> Fred "Not"
+frame #: 156
+(0,0):
+<thing> Fred "Not"
+frame #: 157
+(0,0):
+<thing> Fred "Not"
+frame #: 158
+(0,0):
+<thing> Fred "Not"
+frame #: 159
+(0,0):
+<thing> Fred "Not"
+frame #: 160
+(0,0):
+<thing> Fred "Not"
+frame #: 161
+(0,0):
+<thing> Fred "Not"
+frame #: 162
+(0,0):
+<thing> Fred "Not"
+frame #: 163
+(0,0):
+<thing> Fred "Not"
+frame #: 164
+(0,0):
+<thing> Fred "Not"
+frame #: 165
+(0,0):
+<thing> Fred "Not"
+frame #: 166
+(0,0):
+<thing> Fred "Not"
+frame #: 167
+(0,0):
+<thing> Fred "Not"
+frame #: 168
+(0,0):
+<thing> Fred "Not"
+frame #: 169
+(0,0):
+<thing> Fred "Not"
+frame #: 170
+(0,0):
+<thing> Fred "Not"
+frame #: 171
+(0,0):
+<thing> Fred "Not"
+frame #: 172
+(0,0):
+<thing> Fred "Not"
+frame #: 173
+(0,0):
+<thing> Fred "Not"
+frame #: 174
+(0,0):
+<thing> Fred "Not"
+frame #: 175
+(0,0):
+<thing> Fred "Not"
+frame #: 176
+(0,0):
+<thing> Fred "Not"
+frame #: 177
+(0,0):
+<thing> Fred "Not"
+frame #: 178
+(0,0):
+<thing> Fred "Not"
+frame #: 179
+(0,0):
+<thing> Fred "Not"
+frame #: 180
+(0,0):
+<thing> Fred "Not"
+frame #: 181
+(0,0):
+<thing> Fred "Not"
+frame #: 182
+(0,0):
+<thing> Fred "Not"
+frame #: 183
+(0,0):
+<thing> Fred "Not"
+frame #: 184
+(0,0):
+<thing> Fred "Not"
+frame #: 185
+(0,0):
+<thing> Fred "Not"
+frame #: 186
+(0,0):
+<thing> Fred "Not"
+frame #: 187
+(0,0):
+<thing> Fred "Not"
+frame #: 188
+(0,0):
+<thing> Fred "Not"
+frame #: 189
+(0,0):
+<thing> Fred "Not"
+frame #: 190
+(0,0):
+<thing> Fred "Not"
+frame #: 191
+(0,0):
+<thing> Fred "Not"
+frame #: 192
+(0,0):
+<thing> Fred "Not"
+frame #: 193
+(0,0):
+<thing> Fred "Not"
+frame #: 194
+(0,0):
+<thing> Fred "Not"
+frame #: 195
+(0,0):
+<thing> Fred "Not"
+frame #: 196
+(0,0):
+<thing> Fred "Not"
+frame #: 197
+(0,0):
+<thing> Fred "Not"
+frame #: 198
+(0,0):
+<thing> Fred "Not"
+frame #: 199
+(0,0):
+<thing> Fred "Not"
+frame #: 200
+(0,0):
+<thing> Fred "Not"
+frame #: 201
+(0,0):
+<thing> Fred "Not"
+frame #: 202
+(0,0):
+<thing> Fred "Not"
+frame #: 203
+(0,0):
+<thing> Fred "Not"
+frame #: 204
+(0,0):
+<thing> Fred "Not"
+frame #: 205
+(0,0):
+<thing> Fred "Not"
+frame #: 206
+(0,0):
+<thing> Fred "Not"
+frame #: 207
+(0,0):
+<thing> Fred "Not"
+frame #: 208
+(0,0):
+<thing> Fred "Not"
+frame #: 209
+(0,0):
+<thing> Fred "Not"
+frame #: 210
+(0,0):
+<thing> Fred "Not"
+frame #: 211
+(0,0):
+<thing> Fred "Not"
+frame #: 212
+(0,0):
+<thing> Fred "Not"
+frame #: 213
+(0,0):
+<thing> Fred "Not"
+frame #: 214
+(0,0):
+<thing> Fred "Not"
+frame #: 215
+(0,0):
+<thing> Fred "Not"
+frame #: 216
+(0,0):
+<thing> Fred "Not"
+frame #: 217
+(0,0):
+<thing> Fred "Not"
+frame #: 218
+(0,0):
+<thing> Fred "Not"
+frame #: 219
+(0,0):
+<thing> Fred "Not"
+frame #: 220
+(0,0):
+<thing> Fred "Not"
+frame #: 221
+(0,0):
+<thing> Fred "Not"
+frame #: 222
+(0,0):
+<thing> Fred "Not"
+frame #: 223
+(0,0):
+<thing> Fred "Not"
+frame #: 224
+(0,0):
+<thing> Fred "Not"
+frame #: 225
+(0,0):
+<thing> Fred "Not"
+frame #: 226
+(0,0):
+<thing> Fred "Not"
+frame #: 227
+(0,0):
+<thing> Fred "Not"
+frame #: 228
+(0,0):
+<thing> Fred "Not"
+frame #: 229
+(0,0):
+<thing> Fred "Not"
+frame #: 230
+(0,0):
+<thing> Fred "Not"
+frame #: 231
+(0,0):
+<thing> Fred "Not"
+frame #: 232
+(0,0):
+<thing> Fred "Not"
+frame #: 233
+(0,0):
+<thing> Fred "Not"
+frame #: 234
+(0,0):
+<thing> Fred "Not"
+frame #: 235
+(0,0):
+<thing> Fred "Not"
+frame #: 236
+(0,0):
+<thing> Fred "Not"
+frame #: 237
+(0,0):
+<thing> Fred "Not"
+frame #: 238
+(0,0):
+<thing> Fred "Not"
+frame #: 239
+(0,0):
+<thing> Fred "Not"
+frame #: 240
+(0,0):
+<thing> Fred "Not"
+frame #: 241
+(0,0):
+<thing> Fred "Not"
+frame #: 242
+(0,0):
+<thing> Fred "Not"
+frame #: 243
+(0,0):
+<thing> Fred "Not"
+frame #: 244
+(0,0):
+<thing> Fred "Not"
+frame #: 245
+(0,0):
+<thing> Fred "Not"
+frame #: 246
+(0,0):
+<thing> Fred "Not"
+frame #: 247
+(0,0):
+<thing> Fred "Not"
+frame #: 248
+(0,0):
+<thing> Fred "Not"
+frame #: 249
+(0,0):
+<thing> Fred "Not"
+frame #: 250
+(0,0):
+<thing> Fred "Not"
+frame #: 251
+(0,0):
+<thing> Fred "Not"
+frame #: 252
+(0,0):
+<thing> Fred "Not"
+frame #: 253
+(0,0):
+<thing> Fred "Not"
+frame #: 254
+(0,0):
+<thing> Fred "Not"
+frame #: 255
+(0,0):
+<thing> Fred "Not"
+frame #: 256
+(0,0):
+<thing> Fred "Not"
+frame #: 257
+(0,0):
+<thing> Fred "Not"
+frame #: 258
+(0,0):
+<thing> Fred "Not"
+frame #: 259
+(0,0):
+<thing> Fred "Not"
+frame #: 260
+(0,0):
+<thing> Fred "Not"
+frame #: 261
+(0,0):
+<thing> Fred "Not"
+frame #: 262
+(0,0):
+<thing> Fred "Not"
+frame #: 263
+(0,0):
+<thing> Fred "Not"
+frame #: 264
+(0,0):
+<thing> Fred "Not"
+frame #: 265
+(0,0):
+<thing> Fred "Not"
+frame #: 266
+(0,0):
+<thing> Fred "Not"
+frame #: 267
+(0,0):
+<thing> Fred "Not"
+frame #: 268
+(0,0):
+<thing> Fred "Not"
+frame #: 269
+(0,0):
+<thing> Fred "Not"
+frame #: 270
+(0,0):
+<thing> Fred "Not"
+frame #: 271
+(0,0):
+<thing> Fred "Not"
+frame #: 272
+(0,0):
+<thing> Fred "Not"
+frame #: 273
+(0,0):
+<thing> Fred "Not"
+frame #: 274
+(0,0):
+<thing> Fred "Not"
+frame #: 275
+(0,0):
+<thing> Fred "Not"
+frame #: 276
+(0,0):
+<thing> Fred "Not"
+frame #: 277
+(0,0):
+<thing> Fred "Not"
+frame #: 278
+(0,0):
+<thing> Fred "Not"
+frame #: 279
+(0,0):
+<thing> Fred "Not"
+frame #: 280
+(0,0):
+<thing> Fred "Not"
+frame #: 281
+(0,0):
+<thing> Fred "Not"
+frame #: 282
+(0,0):
+<thing> Fred "Not"
+frame #: 283
+(0,0):
+<thing> Fred "Not"
+frame #: 284
+(0,0):
+<thing> Fred "Not"
+frame #: 285
+(0,0):
+<thing> Fred "Not"
+frame #: 286
+(0,0):
+<thing> Fred "Not"
+frame #: 287
+(0,0):
+<thing> Fred "Not"
+frame #: 288
+(0,0):
+<thing> Fred "Not"
+frame #: 289
+(0,0):
+<thing> Fred "Not"
+frame #: 290
+(0,0):
+<thing> Fred "Not"
+frame #: 291
+(0,0):
+<thing> Fred "Not"
+frame #: 292
+(0,0):
+<thing> Fred "Not"
+frame #: 293
+(0,0):
+<thing> Fred "Not"
+frame #: 294
+(0,0):
+<thing> Fred "Not"
+frame #: 295
+(0,0):
+<thing> Fred "Not"
+frame #: 296
+(0,0):
+<thing> Fred "Not"
+frame #: 297
+(0,0):
+<thing> Fred "Not"
+frame #: 298
+(0,0):
+<thing> Fred "Not"
+frame #: 299
+(0,0):
+<thing> Fred "Not"
+frame #: 300
+(0,0):
+<thing> Fred "Not"
+frame #: 301
+(0,0):
+<thing> Fred "Not"
+frame #: 302
+(0,0):
+<thing> Fred "Not"
+frame #: 303
+(0,0):
+<thing> Fred "Not"
+frame #: 304
+(0,0):
+<thing> Fred "Not"
+frame #: 305
+(0,0):
+<thing> Fred "Not"
+frame #: 306
+(0,0):
+<thing> Fred "Not"
+frame #: 307
+(0,0):
+<thing> Fred "Not"
+frame #: 308
+(0,0):
+<thing> Fred "Not"
+frame #: 309
+(0,0):
+<thing> Fred "Not"
+frame #: 310
+(0,0):
+<thing> Fred "Not"
+frame #: 311
+(0,0):
+<thing> Fred "Not"
+frame #: 312
+(0,0):
+<thing> Fred "Not"
+frame #: 313
+(0,0):
+<thing> Fred "Not"
+frame #: 314
+(0,0):
+<thing> Fred "Not"
+frame #: 315
+(0,0):
+<thing> Fred "Not"
+frame #: 316
+(0,0):
+<thing> Fred "Not"
+frame #: 317
+(0,0):
+<thing> Fred "Not"
+frame #: 318
+(0,0):
+<thing> Fred "Not"
+frame #: 319
+(0,0):
+<thing> Fred "Not"
+frame #: 320
+(0,0):
+<thing> Fred "Not"
+frame #: 321
+(0,0):
+<thing> Fred "Not"
+frame #: 322
+(0,0):
+<thing> Fred "Not"
+frame #: 323
+(0,0):
+<thing> Fred "Not"
+frame #: 324
+(0,0):
+<thing> Fred "Not"
+frame #: 325
+(0,0):
+<thing> Fred "Not"
+frame #: 326
+(0,0):
+<thing> Fred "Not"
+frame #: 327
+(0,0):
+<thing> Fred "Not"
+frame #: 328
+(0,0):
+<thing> Fred "Not"
+frame #: 329
+(0,0):
+<thing> Fred "Not"
+frame #: 330
+(0,0):
+<thing> Fred "Not"
+frame #: 331
+(0,0):
+<thing> Fred "Not"
+frame #: 332
+(0,0):
+<thing> Fred "Not"
+frame #: 333
+(0,0):
+<thing> Fred "Not"
+frame #: 334
+(0,0):
+<thing> Fred "Not"
+frame #: 335
+(0,0):
+<thing> Fred "Not"
+frame #: 336
+(0,0):
+<thing> Fred "Not"
+frame #: 337
+(0,0):
+<thing> Fred "Not"
+frame #: 338
+(0,0):
+<thing> Fred "Not"
+frame #: 339
+(0,0):
+<thing> Fred "Not"
+frame #: 340
+(0,0):
+<thing> Fred "Not"
+frame #: 341
+(0,0):
+<thing> Fred "Not"
+frame #: 342
+(0,0):
+<thing> Fred "Not"
+frame #: 343
+(0,0):
+<thing> Fred "Not"
+frame #: 344
+(0,0):
+<thing> Fred "Not"
+frame #: 345
+(0,0):
+<thing> Fred "Not"
+frame #: 346
+(0,0):
+<thing> Fred "Not"
+frame #: 347
+(0,0):
+<thing> Fred "Not"
+frame #: 348
+(0,0):
+<thing> Fred "Not"
+frame #: 349
+(0,0):
+<thing> Fred "Not"
+frame #: 350
+(0,0):
+<thing> Fred "Not"
+frame #: 351
+(0,0):
+<thing> Fred "Not"
+frame #: 352
+(0,0):
+<thing> Fred "Not"
+frame #: 353
+(0,0):
+<thing> Fred "Not"
+frame #: 354
+(0,0):
+<thing> Fred "Not"
+frame #: 355
+(0,0):
+<thing> Fred "Not"
+frame #: 356
+(0,0):
+<thing> Fred "Not"
+frame #: 357
+(0,0):
+<thing> Fred "Not"
+frame #: 358
+(0,0):
+<thing> Fred "Not"
+frame #: 359
+(0,0):
+<thing> Fred "Not"
+frame #: 360
+(0,0):
+<thing> Fred "Not"
+frame #: 361
+(0,0):
+<thing> Fred "Not"
+frame #: 362
+(0,0):
+<thing> Fred "Not"
+frame #: 363
+(0,0):
+<thing> Fred "Not"
+frame #: 364
+(0,0):
+<thing> Fred "Not"
+frame #: 365
+(0,0):
+<thing> Fred "Not"
+frame #: 366
+(0,0):
+<thing> Fred "Not"
+frame #: 367
+(0,0):
+<thing> Fred "Not"
+frame #: 368
+(0,0):
+<thing> Fred "Not"
+frame #: 369
+(0,0):
+<thing> Fred "Not"
+frame #: 370
+(0,0):
+<thing> Fred "Not"
+frame #: 371
+(0,0):
+<thing> Fred "Not"
+frame #: 372
+(0,0):
+<thing> Fred "Not"
+frame #: 373
+(0,0):
+<thing> Fred "Not"
+frame #: 374
+(0,0):
+<thing> Fred "Not"
+frame #: 375
+(0,0):
+<thing> Fred "Not"
+frame #: 376
+(0,0):
+<thing> Fred "Not"
+frame #: 377
+(0,0):
+<thing> Fred "Not"
+frame #: 378
+(0,0):
+<thing> Fred "Not"
+frame #: 379
+(0,0):
+<thing> Fred "Not"
+frame #: 380
+(0,0):
+<thing> Fred "Not"
+frame #: 381
+(0,0):
+<thing> Fred "Not"
+frame #: 382
+(0,0):
+<thing> Fred "Not"
+frame #: 383
+(0,0):
+<thing> Fred "Not"
+frame #: 384
+(0,0):
+<thing> Fred "Not"
+frame #: 385
+(0,0):
+<thing> Fred "Not"
+frame #: 386
+(0,0):
+<thing> Fred "Not"
+frame #: 387
+(0,0):
+<thing> Fred "Not"
+frame #: 388
+(0,0):
+<thing> Fred "Not"
+frame #: 389
+(0,0):
+<thing> Fred "Not"
+frame #: 390
+(0,0):
+<thing> Fred "Not"
+frame #: 391
+(0,0):
+<thing> Fred "Not"
+frame #: 392
+(0,0):
+<thing> Fred "Not"
+frame #: 393
+(0,0):
+<thing> Fred "Not"
+frame #: 394
+(0,0):
+<thing> Fred "Not"
+frame #: 395
+(0,0):
+<thing> Fred "Not"
+frame #: 396
+(0,0):
+<thing> Fred "Not"
+frame #: 397
+(0,0):
+<thing> Fred "Not"
+frame #: 398
+(0,0):
+<thing> Fred "Not"
+frame #: 399
+(0,0):
+<thing> Fred "Not"
+frame #: 400
+(0,0):
+<thing> Fred "Not"
+frame #: 401
+(0,0):
+<thing> Fred "Not"
+frame #: 402
+(0,0):
+<thing> Fred "Not"
+frame #: 403
+(0,0):
+<thing> Fred "Not"
+frame #: 404
+(0,0):
+<thing> Fred "Not"
+frame #: 405
+(0,0):
+<thing> Fred "Not"
+frame #: 406
+(0,0):
+<thing> Fred "Not"
+frame #: 407
+(0,0):
+<thing> Fred "Not"
+frame #: 408
+(0,0):
+<thing> Fred "Not"
+frame #: 409
+(0,0):
+<thing> Fred "Not"
+frame #: 410
+(0,0):
+<thing> Fred "Not"
+frame #: 411
+(0,0):
+<thing> Fred "Not"
+frame #: 412
+(0,0):
+<thing> Fred "Not"
+frame #: 413
+(0,0):
+<thing> Fred "Not"
+frame #: 414
+(0,0):
+<thing> Fred "Not"
+frame #: 415
+(0,0):
+<thing> Fred "Not"
+frame #: 416
+(0,0):
+<thing> Fred "Not"
+frame #: 417
+(0,0):
+<thing> Fred "Not"
+frame #: 418
+(0,0):
+<thing> Fred "Not"
+frame #: 419
+(0,0):
+<thing> Fred "Not"
+frame #: 420
+(0,0):
+<thing> Fred "Not"
+frame #: 421
+(0,0):
+<thing> Fred "Not"
+frame #: 422
+(0,0):
+<thing> Fred "Not"
+frame #: 423
+(0,0):
+<thing> Fred "Not"
+frame #: 424
+(0,0):
+<thing> Fred "Not"
+frame #: 425
+(0,0):
+<thing> Fred "Not"
+frame #: 426
+(0,0):
+<thing> Fred "Not"
+frame #: 427
+(0,0):
+<thing> Fred "Not"
+frame #: 428
+(0,0):
+<thing> Fred "Not"
+frame #: 429
+(0,0):
+<thing> Fred "Not"
+frame #: 430
+(0,0):
+<thing> Fred "Not"
+frame #: 431
+(0,0):
+<thing> Fred "Not"
+frame #: 432
+(0,0):
+<thing> Fred "Not"
+frame #: 433
+(0,0):
+<thing> Fred "Not"
+frame #: 434
+(0,0):
+<thing> Fred "Not"
+frame #: 435
+(0,0):
+<thing> Fred "Not"
+frame #: 436
+(0,0):
+<thing> Fred "Not"
+frame #: 437
+(0,0):
+<thing> Fred "Not"
+frame #: 438
+(0,0):
+<thing> Fred "Not"
+frame #: 439
+(0,0):
+<thing> Fred "Not"
+frame #: 440
+(0,0):
+<thing> Fred "Not"
+frame #: 441
+(0,0):
+<thing> Fred "Not"
+frame #: 442
+(0,0):
+<thing> Fred "Not"
+frame #: 443
+(0,0):
+<thing> Fred "Not"
+frame #: 444
+(0,0):
+<thing> Fred "Not"
+frame #: 445
+(0,0):
+<thing> Fred "Not"
+frame #: 446
+(0,0):
+<thing> Fred "Not"
+frame #: 447
+(0,0):
+<thing> Fred "Not"
+frame #: 448
+(0,0):
+<thing> Fred "Not"
+frame #: 449
+(0,0):
+<thing> Fred "Not"
+frame #: 450
+(0,0):
+<thing> Fred "Not"
+frame #: 451
+(0,0):
+<thing> Fred "Not"
+frame #: 452
+(0,0):
+<thing> Fred "Not"
+frame #: 453
+(0,0):
+<thing> Fred "Not"
+frame #: 454
+(0,0):
+<thing> Fred "Not"
+frame #: 455
+(0,0):
+<thing> Fred "Not"
+frame #: 456
+(0,0):
+<thing> Fred "Not"
+frame #: 457
+(0,0):
+<thing> Fred "Not"
+frame #: 458
+(0,0):
+<thing> Fred "Not"
+frame #: 459
+(0,0):
+<thing> Fred "Not"
+frame #: 460
+(0,0):
+<thing> Fred "Not"
+frame #: 461
+(0,0):
+<thing> Fred "Not"
+frame #: 462
+(0,0):
+<thing> Fred "Not"
+frame #: 463
+(0,0):
+<thing> Fred "Not"
+frame #: 464
+(0,0):
+<thing> Fred "Not"
+frame #: 465
+(0,0):
+<thing> Fred "Not"
+frame #: 466
+(0,0):
+<thing> Fred "Not"
+frame #: 467
+(0,0):
+<thing> Fred "Not"
+frame #: 468
+(0,0):
+<thing> Fred "Not"
+frame #: 469
+(0,0):
+<thing> Fred "Not"
+frame #: 470
+(0,0):
+<thing> Fred "Not"
+frame #: 471
+(0,0):
+<thing> Fred "Not"
+frame #: 472
+(0,0):
+<thing> Fred "Not"
+frame #: 473
+(0,0):
+<thing> Fred "Not"
+frame #: 474
+(0,0):
+<thing> Fred "Not"
+frame #: 475
+(0,0):
+<thing> Fred "Not"
+frame #: 476
+(0,0):
+<thing> Fred "Not"
+frame #: 477
+(0,0):
+<thing> Fred "Not"
+frame #: 478
+(0,0):
+<thing> Fred "Not"
+frame #: 479
+(0,0):
+<thing> Fred "Not"
+frame #: 480
+(0,0):
+<thing> Fred "Not"
+frame #: 481
+(0,0):
+<thing> Fred "Not"
+frame #: 482
+(0,0):
+<thing> Fred "Not"
+frame #: 483
+(0,0):
+<thing> Fred "Not"
+frame #: 484
+(0,0):
+<thing> Fred "Not"
+frame #: 485
+(0,0):
+<thing> Fred "Not"
+frame #: 486
+(0,0):
+<thing> Fred "Not"
+frame #: 487
+(0,0):
+<thing> Fred "Not"
+frame #: 488
+(0,0):
+<thing> Fred "Not"
+frame #: 489
+(0,0):
+<thing> Fred "Not"
+frame #: 490
+(0,0):
+<thing> Fred "Not"
+frame #: 491
+(0,0):
+<thing> Fred "Not"
+frame #: 492
+(0,0):
+<thing> Fred "Not"
+frame #: 493
+(0,0):
+<thing> Fred "Not"
+frame #: 494
+(0,0):
+<thing> Fred "Not"
+frame #: 495
+(0,0):
+<thing> Fred "Not"
+frame #: 496
+(0,0):
+<thing> Fred "Not"
+frame #: 497
+(0,0):
+<thing> Fred "Not"
+frame #: 498
+(0,0):
+<thing> Fred "Not"
+frame #: 499
+(0,0):
+<thing> Fred "Not"
+frame #: 500
+(0,0):
+<thing> Fred "Not"
