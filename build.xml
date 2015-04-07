@@ -1,11 +1,11 @@
 <project name="Words" default="jar">
     <!-- variables, access via ${} -->
-    <property name="src.dir" location="src" />
+    <property name="src.dir" location="src/words" />
     <property name="bin.dir" location="bin" />
     <property name="jar.dir" location="jar" />
     <property name="lib.dir" location="lib" />
-    <property name="test.dir" location="test" />
-    <property name="bin.test.dir" location="bin/test" />
+    <property name="test.dir" location="test/words/test" />
+    <property name="bin.test.dir" location="bin/words/test" />
     <property name="test.report.dir" location="report" />
 
     <!-- classpath for junit -->
@@ -27,6 +27,7 @@
         <exec executable="yacc" dir="${src.dir}">
             <arg value="-J" />
             <arg value="-Jclass=Words" />
+            <arg value="-Jpackage=words" />
             <arg value="Words.y" />
         </exec>
         <exec executable="cmd" dir="${src.dir}">
@@ -39,6 +40,7 @@
         <exec executable="yacc" dir="${src.dir}">
             <arg value="-J" />
             <arg value="-Jclass=Words" />
+            <arg value="-Jpackage=words" />
             <arg value="Words.y" />
         </exec>
         <exec executable="jflex" dir="${src.dir}">
@@ -82,9 +84,9 @@
 
     <!-- run tests -->
     <!-- report is plain, could also be xml -->
-    <target name="test" depends="test-compile">
+    <target name="test" >
         <mkdir dir="${test.report.dir}" />
-        <junit printsummary="on" fork="true" haltonfailure="yes">
+        <junit printsummary="on" fork="true" haltonfailure="no">
             <classpath refid="junit.classpath" />
             <formatter type="plain" />
             <batchtest todir="${test.report.dir}">
