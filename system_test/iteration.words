@@ -1,0 +1,8 @@
+Fred is a thing at 0,0.
+
+Repeat 3 times {
+	Make Fred move up 2.
+	Make Fred move down 1.
+}
+
+Make Fred say "Done!".

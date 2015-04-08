@@ -7,6 +7,7 @@
     <property name="test.dir" location="test/words/test" />
     <property name="bin.test.dir" location="bin/words/test" />
     <property name="test.report.dir" location="report" />
+    <property name="system_test.dir" location="system_test" />
 
     <!-- classpath for junit -->
     <path id="junit.classpath">
@@ -72,7 +73,7 @@
         <mkdir dir="${jar.dir}" />
         <jar destfile="${jar.dir}/Words.jar" basedir="${bin.dir}">
             <manifest>
-                <attribute name="Main-Class" value="Words" />
+                <attribute name="Main-Class" value="words/Words" />
             </manifest>
         </jar>
     </target>
@@ -82,9 +83,9 @@
         <java jar="${jar.dir}/Words.jar" fork="true" />
     </target>
 
-    <!-- run tests -->
+    <!-- run JUnit tests and integration tests -->
     <!-- report is plain, could also be xml -->
-    <target name="test" depends="test-compile">
+    <target name="test-unit" depends="test-compile">
         <mkdir dir="${test.report.dir}" />
         <junit printsummary="on" fork="true" haltonfailure="no">
             <classpath refid="junit.classpath" />
@@ -95,6 +96,23 @@
                 </fileset>
             </batchtest>
         </junit>
+    </target>
+
+    <!-- run system tests -->
+    <target name="test-system" depends="jar, test-system-windows, test-system-other" />
+	<target name="test-system-windows" if="isWindows">
+        <apply executable="${system_test.dir}/test.bat" failonerror="true">
+            <fileset dir="${system_test.dir}" includes="*.words" />
+        </apply>
+    </target>
+
+    <target name="test-system-other" unless="isWindows">
+        <apply executable="${system_test.dir}/test.sh" failonerror="true">
+            <fileset dir="${system_test.dir}" includes="*.words" />
+        </apply>
+    </target>
+
+    <target name="test" depends="test-unit, test-system">
     </target>
 
     <!-- delete existing build -->

@@ -6,7 +6,7 @@ import words.environment.*;
 import words.exceptions.WordsRuntimeException;
 
 public class FrameLoop extends Thread {
-	private static int counter = 1;
+	private static int numFrames = 1;
 
 	private LinkedBlockingDeque<AST> ASTQueue;
 	private WordsEnvironment environment;
@@ -38,19 +38,21 @@ public class FrameLoop extends Thread {
 	public void run() {
 		boolean finished = false;
 		while (!finished) {
-			long timeToSleep = Option.TIME_TO_WAIT;
-		    long start, end, slept;
-			while (timeToSleep > 0){
-		        start = System.currentTimeMillis();
-		        try {
-		            Thread.sleep(timeToSleep);
-		            break;
-		        } catch (InterruptedException e) {
-					//work out how much more time to sleep for
-					end = System.currentTimeMillis();
-					slept = end-start;
-					timeToSleep -= slept;
-		        }
+			if (Option.TIME_TO_WAIT > 0) {
+				long timeToSleep = Option.TIME_TO_WAIT;
+				long start, end, slept;
+				while (timeToSleep > 0) {
+					start = System.currentTimeMillis();
+					try {
+						Thread.sleep(timeToSleep);
+						break;
+					} catch (InterruptedException e) {
+						//work out how much more time to sleep for
+						end = System.currentTimeMillis();
+						slept = end-start;
+						timeToSleep -= slept;
+			        	}
+				}
 			}
 			finished = executeSingleFrame();
 		}
@@ -95,17 +97,17 @@ public class FrameLoop extends Thread {
 			}
 			GUI.render();
 		}  else {
-			System.out.println("counter = " + counter);
+			System.out.println("frame #: " + numFrames);
 			WordsLog log = new WordsLog();
 			for (WordsObject object : environment.getObjects()) {
 				log.add(object.getCurrentCell(), object.getClassName(), object.getObjectName(), object.getCurrentMessage());
 			}
 			log.log();
-			if (counter >= Option.MAX_COUNTER)
+			if (Option.FRAME_LIMIT_ENABLED && numFrames >= Option.MAX_FRAMES)
 				finished = true;
 		}
 
-		++counter;
+		++numFrames;
 		return finished;
 	}
 
