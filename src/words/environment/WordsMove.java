@@ -11,25 +11,15 @@ import words.exceptions.WordsRuntimeException;
 
 public class WordsMove extends WordsAction {
 	private Direction direction;
-	private AST distanceExpression;
-	private int distanceValue;
-
-	public WordsMove(Direction direction, AST distanceExpression) {
-		if (direction.type == Direction.Type.ANYWHERE) {
-			Random randomGenerator = new Random();
-			int randomInt = randomGenerator.nextInt(4);
-			this.direction.type = Direction.explicit[randomInt];
-		} else {
-			this.direction = direction;
-		}
-		this.distanceExpression = distanceExpression;
-	}
+	private AST distanceExpression;		// The expression whose value will be the number of moves to make; used only before the move has been expanded
 
 	/**
-	 * Create a new WordsMove action.  distanceValue must round to a positive or negative integer.
-	 * distanceValue cannot round to zero.
+	 * Create a new WordsMove action.  distanceExpression should evaluate to a number (or be coercible into a number)
+	 * else an exception will be thrown to the user when the action is executed.
+	 * 
+	 * distanceExpression may be null, in which case the WordsMove will be treated as a 1-unit move.
 	 */
-	public WordsMove(Direction direction, double distanceValue) {
+	public WordsMove(Direction direction, AST distanceExpression) {
 		if (direction.type == Direction.Type.ANYWHERE) {
 			Random randomGenerator = new Random();
 			int randomInt = randomGenerator.nextInt(4);
@@ -37,20 +27,20 @@ public class WordsMove extends WordsAction {
 		} else {
 			this.direction = direction;
 		}
+		this.distanceExpression = distanceExpression;
+	}
 
-		if (distanceValue < 0) {
-			distanceValue = distanceValue * -1;
-			this.direction.type = Direction.getOpposite(this.direction.type);
-		}
-		this.distanceValue = (int) Math.round(distanceValue);
+	/**
+	 * Private constructor used to create a 1-unit move action.
+	 */
+	private WordsMove(Direction direction) {
+		this.direction = direction;
+		this.distanceExpression = null;
 	}
 
 	@Override
 	public boolean isExecutable() {
 		if (distanceExpression != null)
-			return false;
-
-		if (distanceValue != 1)
 			return false;
 
 		return true;
@@ -80,30 +70,31 @@ public class WordsMove extends WordsAction {
 
 	@Override
 	public LinkedList<WordsAction> doExpand(WordsObject object, WordsEnvironment environment) throws WordsProgramException {
-		if (distanceExpression != null) {
-			ASTValue value;
-			try {
-				value = distanceExpression.eval(environment).tryCoerceTo(ASTValue.ValueType.NUM);
-			} catch (WordsRuntimeException e) {
-				throw new WordsProgramException(distanceExpression, e);
-			}
-
-			if (value.type != ASTValue.ValueType.NUM) {
-				throw new WordsProgramException(distanceExpression, new WordsInvalidTypeException(value.type.toString(), ASTValue.ValueType.NUM.toString()));
-			}
-
-			distanceValue = (int) Math.round(value.numValue);
-			distanceExpression = null;						// Not necessary, but including for clarity since once the expression is evaluated, it is no longer needed
+		ASTValue value;
+		try {
+			value = distanceExpression.eval(environment).tryCoerceTo(ASTValue.ValueType.NUM);
+		} catch (WordsRuntimeException e) {
+			throw new WordsProgramException(distanceExpression, e);
 		}
 
-		//TODO: flip if distanceValue is negative
+		if (value.type != ASTValue.ValueType.NUM) {
+			throw new WordsProgramException(distanceExpression, new WordsInvalidTypeException(value.type.toString(), ASTValue.ValueType.NUM.toString()));
+		}
+
+		int distanceValue = (int) Math.round(value.numValue);
+
+		if (distanceValue < 0) {
+			distanceValue = -distanceValue;
+			direction.type = Direction.getOpposite(direction.type);
+		}
 
 		LinkedList<WordsAction> list = new LinkedList<WordsAction>();
 
 		// Decompose into executable 1-unit moves, or a wait action if distanceValue is zero
 		if (distanceValue > 0) {
 			for (int i = 0; i < distanceValue; i++) {
-				list.add(new WordsMove(direction, 1));
+				// Use the private constructor to create the 1-unit move
+				list.add(new WordsMove(direction));
 			}
 		} else {
 			list.add(new WordsWait(1));
