@@ -12,16 +12,18 @@ public class INodeWhile extends INode {
 
 	@Override
 	public ASTValue eval(WordsEnvironment environment) throws WordsRuntimeException {
-		ASTValue conditional = children.get(0).eval(environment);
+		AST conditional = children.get(0);
 		AST statementList = children.get(1);
+		ASTValue conditionalValue = conditional.eval(environment);
 		
-		assert conditional.type == ASTValue.ValueType.BOOLEAN;
+		assert conditionalValue.type == ASTValue.ValueType.BOOLEAN;
 
-		while (conditional.booleanValue == true) {
+		while (conditionalValue.booleanValue == true) {
+			System.out.println("LOOP");
 			environment.enterNewLocalScope();
 			statementList.eval(environment);
 			environment.exitLocalScope();
-			conditional = children.get(0).eval(environment);
+			conditionalValue = conditional.eval(environment);
 		}
 		
 		return null;
