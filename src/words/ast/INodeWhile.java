@@ -19,7 +19,6 @@ public class INodeWhile extends INode {
 		assert conditionalValue.type == ASTValue.ValueType.BOOLEAN;
 
 		while (conditionalValue.booleanValue == true) {
-			System.out.println("LOOP");
 			environment.enterNewLocalScope();
 			statementList.eval(environment);
 			environment.exitLocalScope();
