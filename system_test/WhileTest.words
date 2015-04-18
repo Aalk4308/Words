@@ -1,0 +1,5 @@
+Fred is a thing at 0,0.
+
+While Fred's row < 3 {
+	Fred's row is Fred's row + 1.
+}
