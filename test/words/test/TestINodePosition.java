@@ -17,7 +17,7 @@ public class TestINodePosition extends TestINode {
 		INode testNode = new INodePosition(numLeaf1, numLeaf2);
 		ASTValue result = testNode.eval(environment);
 		assertEquals("Creates a position", result.type, ASTValue.Type.POSITION);
-		assertEquals("The position is the right position", result.positionValue, new Position(0,2));
+		assertEquals("The position is the right position", result.positionValue, new Position(2,0));
 	}
 	
 	@Test
@@ -28,7 +28,7 @@ public class TestINodePosition extends TestINode {
 		INode testNode = new INodePosition(numLeaf, stringLeaf);
 		ASTValue result = testNode.eval(environment);
 		assertEquals("Creates a position", result.type, ASTValue.Type.POSITION);
-		assertEquals("The position is the right position", result.positionValue, new Position(0,2));
+		assertEquals("The position is the right position", result.positionValue, new Position(2,0));
 	}
 	
 	@Test (expected = InvalidTypeException.class)

@@ -1,6 +1,6 @@
-Fred is a thing at 0,-5.
-John is a thing at 0,5.
-Kevin is a thing at 1,0.
+Fred is a thing at -5,0.
+John is a thing at 5,0.
+Kevin is a thing at 0,1.
 
 As long as Fred's row < 5 { Make Fred move up. }
 

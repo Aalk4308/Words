@@ -2,22 +2,22 @@ counter is a thing at -100,-100.
 counter's x is -5.
 counter's y is -5.
 Repeat 10 times {
-    wall is a thing at counter's x, counter's y.
+    wall is a thing at counter's y, counter's x.
     counter's x is counter's x + 1.
     Make wall move left 3.
 }
 Repeat 10 times {
-    wall is a thing at counter's x, counter's y.
+    wall is a thing at counter's y, counter's x.
     counter's y is counter's y + 1.
     Make wall move right 3.
 }
 Repeat 10 times {
-    wall is a thing at counter's x, counter's y.
+    wall is a thing at counter's y, counter's x.
     counter's x is counter's x - 1.
     Make wall move left 3.
 }
 Repeat 10 times {
-    wall is a thing at counter's x, counter's y.
+    wall is a thing at counter's y, counter's x.
     counter's y is counter's y - 1.
     Make wall move down 3.
 }

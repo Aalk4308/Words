@@ -21,6 +21,6 @@ public class INodePosition extends INode {
 			throw new InvalidTypeException(ASTValue.Type.NUM.toString(), col.type.toString());
 		}
 		
-		return new ASTValue(new Position(row.numValue, col.numValue));
+		return new ASTValue(new Position(col.numValue, row.numValue));
 	}
 }

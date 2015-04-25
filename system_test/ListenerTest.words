@@ -2,8 +2,8 @@ A person is a thing.
 A wall is a thing.
 
 Alex is a person at 0,0.
-Jon is a person at 2,1.
-wall1 is a wall at 1,0.
+Jon is a person at 1,2.
+wall1 is a wall at 0,1.
 
 Whenever a person [p] touches a wall [w] {
 	Make p say "ow".
