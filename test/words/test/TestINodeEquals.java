@@ -97,4 +97,23 @@ public class TestINodeEquals extends TestINode {
 		assertEquals("Creates a boolean", result.type, ASTValue.Type.BOOLEAN);
 		assertFalse("Result is false", result.booleanValue);
 	}
+	
+	@Test
+	public void objectShouldEqualItself() throws WordsRuntimeException {
+		createObjectFred.eval(environment);		
+		INode testNode = new INodeEquals(new INodeReferenceList(fredStringLeaf), new INodeReferenceList(fredStringLeaf));
+		ASTValue result = testNode.eval(environment);
+		assertEquals("Creates a boolean", result.type, ASTValue.Type.BOOLEAN);
+		assertTrue("Result is true", result.booleanValue);
+	}
+	
+	@Test
+	public void objectShouldNotEqualAnotherObject() throws WordsRuntimeException {
+		createObjectFred.eval(environment);
+		createObjectGeorge.eval(environment);
+		INode testNode = new INodeEquals(new INodeReferenceList(fredStringLeaf), new INodeReferenceList(georgeStringLeaf));
+		ASTValue result = testNode.eval(environment);
+		assertEquals("Creates a boolean", result.type, ASTValue.Type.BOOLEAN);
+		assertFalse("Result is false", result.booleanValue);
+	}
 }

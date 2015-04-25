@@ -1,7 +1,5 @@
 package words.ast;
 
-import java.util.HashSet;
-
 import words.environment.*;
 import words.exceptions.*;
 
@@ -18,14 +16,10 @@ public class INodeArgument extends INode {
 	
 	@Override
 	public ASTValue eval(Environment environment, Object inherited) throws WordsRuntimeException {
-		@SuppressWarnings("unchecked")
-		HashSet<String> parameters = (HashSet<String>) inherited;
+		Scope evaluatedArguments = (Scope) inherited;
 		ASTValue argumentName = children.get(0).eval(environment);
-		
-		if (parameters.contains(argumentName.stringValue)) {
-			ASTValue argumentValue = children.get(1).eval(environment);
-			environment.addToCurrentScope(argumentName.stringValue, argumentValue.toWordsProperty());
-		}
+		ASTValue argumentValue = children.get(1).eval(environment);
+		evaluatedArguments.variables.put(argumentName.stringValue, argumentValue.toWordsProperty());
 		
 		return null;
 	}

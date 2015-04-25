@@ -29,9 +29,8 @@ public class INodeEquals extends INode {
 			return new ASTValue(false);
 		}
 		
-		if ((lhs.type == ASTValue.Type.OBJ && rhs.type == ASTValue.Type.OBJ) &&
-			(lhs.objValue == rhs.objValue)) {
-			return new ASTValue(true);
+		if (lhs.type == ASTValue.Type.OBJ && rhs.type == ASTValue.Type.OBJ) {
+			return new ASTValue(lhs.objValue == rhs.objValue);
 		}
 		
 		// Remaining types must be a number or string

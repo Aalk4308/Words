@@ -198,9 +198,9 @@ public class GUI {
 			   } else if (e.getSource() == down) {
 				   yCenterCell -= moveStep;
 			   } else if (e.getSource() == left) {
-				   xCenterCell += moveStep;
-			   } else if (e.getSource() == right) {
 				   xCenterCell -= moveStep;
+			   } else if (e.getSource() == right) {
+				   xCenterCell += moveStep;
 			   } else if (e.getSource() == zoomIn) {
 				   numCells -= zoomStep;
 				   numCells = numCells < minCells ? minCells : numCells;

@@ -27,9 +27,19 @@ public class CustomAction extends Action {
 
 	@Override
 	protected LinkedList<Action> doExpand(WordsObject object, Environment environment) throws WordsProgramException {
+		// Evaluate the arguments (in the current scope) that will be passed to the formal parameters
+		Scope evaluatedArguments = new Scope(null);
+		if (arguments != null) {
+			try {
+				arguments.eval(environment, evaluatedArguments);
+			} catch (WordsRuntimeException e) {
+				throw new WordsProgramException(arguments, e);
+			}
+		}
+		
 		// Set up the object so that new actions are enqueued on a temporary list rather than the main action queue
 		object.startExpandingCustomAction();
-		actionDefinition.invoke(environment, object, arguments);
+		actionDefinition.invoke(environment, object, evaluatedArguments);
 		return object.finishExpandingCustomAction();
 	}
 }

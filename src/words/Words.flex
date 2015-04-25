@@ -113,12 +113,16 @@ LEQ = "<="
 "with"							{ onMatch(); return Words.WITH; }
 
 	/* Other lexemes */
-{IDENTIFIER} 	{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.IDENTIFIER; }
 "her" 			{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
 "his" 			{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
 "its" 			{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
 "their" 		{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
+"Her" 			{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
+"His" 			{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
+"Its" 			{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
+"Their" 		{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
 {REFERENCE} 	{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.REFERENCE; }
+{IDENTIFIER} 	{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.IDENTIFIER; }
 {NUM}			{ onMatch(); yyparser.yylval = new WordsVal(Double.parseDouble(yytext())); return Words.NUM; }
 {STRING}		{ onMatch(); yyparser.yylval = new WordsVal(yytext()); return Words.STRING; }
 

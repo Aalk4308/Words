@@ -17,6 +17,11 @@ Fred is a man at 0,0.
 Make Fred say "I will jump.".
 Make Fred jump.
 Make Fred say "I jumped!".
-Make Fred say "I will sprint.".
-Make Fred sprint with distance 4, message "I'm sprinting!".
-Make Fred say "I sprinted!".
+
+If 1 = 1 then {
+	Bob is a man at -2, -2.
+	Bob's value is 4.
+	Make Fred say "I will sprint.".
+	Make Fred sprint with distance Bob's value, message "I'm sprinting!".
+	Make Fred say "I sprinted!".
+}

@@ -126,7 +126,7 @@ statement_list:
 statement:
 		declarative_statement		{ $$ = $1; }
 	|	non_declarative_statement	{ $$ = $1; }
-	|	error { errorToken = lexer.yytext(); errorLineNumber = lexer.lineNumber; errorCharNumber = lexer.charNumber; } '.' { yyerror("Line " + errorLineNumber + " near '" + errorToken + "'" + "\n" + lexer.line.toString() + "\n" + new String(new char[errorCharNumber-1]).replace("\0", " ") + "^"); yyerrflag = 0; }
+	|	error { errorToken = lexer.yytext(); errorLineNumber = lexer.lineNumber; errorCharNumber = lexer.charNumber; } '.' { yyerror("Line " + errorLineNumber + " near '" + errorToken + "'" + "\n" + lexer.line.toString().replace("\t", " ") + "\n" + new String(new char[errorCharNumber-1]).replace("\0", " ") + "^"); yyerrflag = 0; }
 
 non_declarative_statement_list:
 		non_declarative_statement									{ $$ = new INodeStatementList($1); ((AST) $$).lineNumber = lexer.lineNumber; }
