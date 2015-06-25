@@ -2,6 +2,7 @@ package words.environment;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import words.Variable;
 import words.exceptions.CustomActionAlreadyExistsException;
 import words.exceptions.CustomActionNotFoundException;
 
@@ -9,14 +10,14 @@ import words.exceptions.CustomActionNotFoundException;
  * A class as specified in the Words language.
  */
 public class WordsClass {
-	private HashMap<String, Property> properties;
+	private HashMap<String, Variable> properties;
 	private HashMap<String, CustomActionDefinition> customActions;
 	private WordsClass parent;
 	private String className;
 	private ArrayList<WordsClass> children;
 	
 	public WordsClass(String className, WordsClass parent) {
-		properties = new HashMap<String, Property>();
+		properties = new HashMap<String, Variable>();
 		customActions = new HashMap<String, CustomActionDefinition>();
 		children = new ArrayList<WordsClass>();
 		this.parent = parent;
@@ -50,7 +51,7 @@ public class WordsClass {
 	 * Retrieves a property of a class by looking only at the class itself, ignoring its class chain.
 	 * A missing property returns null.
 	 */
-	private Property getOwnProperty(String propertyName) {
+	private Variable getOwnProperty(String propertyName) {
 		if (properties.containsKey(propertyName))
 			return properties.get(propertyName);
 		else
@@ -61,11 +62,11 @@ public class WordsClass {
 	 * Retrieves a property on a class by looking at the class itself and its class chain.
 	 * A missing property returns a WordsProperty of type NOTHING.
 	 */
-	public Property getProperty(String propertyName) {
+	public Variable getProperty(String propertyName) {
 		WordsClass lookupClass = this;
 		
 		while (lookupClass != null) {
-			Property property = lookupClass.getOwnProperty(propertyName);
+			Variable property = lookupClass.getOwnProperty(propertyName);
 			
 			if (property != null)
 				return property;
@@ -73,15 +74,15 @@ public class WordsClass {
 			lookupClass = lookupClass.parent;
 		}
 		
-		return new Property(Property.PropertyType.NOTHING);
+		return new Variable(Variable.Type.NOTHING);
 	}
 	
 	/**
 	 * Sets a property on this class for a given name, overwriting any existing property for that name.
 	 * Does not set anything if the provided property is NOTHING.
 	 */
-	public void setProperty(String propertyName, Property property) {
-		if (property.type != Property.PropertyType.NOTHING) {
+	public void setProperty(String propertyName, Variable property) {
+		if (property.type != Variable.Type.NOTHING) {
 			properties.put(propertyName, property);
 		}
 	}

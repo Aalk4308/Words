@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -9,10 +10,14 @@ public class INodeQueueAssign extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
-		ASTValue referenceObject = children.get(0).eval(environment);
+	public Variable eval(Environment environment) throws WordsRuntimeException {
+		Variable referenceObject = children.get(0).eval(environment);
+		// Right now, we don't support queued assignments on local variables
+		if (referenceObject.type != Variable.Type.OBJ) {
+			throw new InvalidTypeException("Object", referenceObject.type.toString());
+		}
 		AST propertyList = children.get(1);
-		ASTValue doNow = children.get(2) != null ? children.get(2).eval(environment) : null;
+		Variable doNow = children.get(2) != null ? children.get(2).eval(environment) : null;
 		
 		PropertyAssignAction action = new PropertyAssignAction(environment.getCurrentScope(), propertyList);
 		WordsObject object = referenceObject.objValue;

@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.ast.*;
 import words.exceptions.*;
 
@@ -14,8 +15,8 @@ public class TestINodeGreater extends TestINode {
 		AST numLeaf2 = new LNodeNum(1.4);
 		
 		INode testNode = new INodeGreater(numLeaf1, numLeaf2);
-		ASTValue result = testNode.eval(environment);
-		assertEquals("Creates a boolean", result.type, ASTValue.Type.BOOLEAN);
+		Variable result = testNode.eval(environment);
+		assertEquals("Creates a boolean", result.type, Variable.Type.BOOLEAN);
 		assertFalse("Result is false", result.booleanValue);
 	}
 	
@@ -25,8 +26,8 @@ public class TestINodeGreater extends TestINode {
 		AST numLeaf2 = new LNodeNum(1.4);
 		
 		INode testNode = new INodeGreater(numLeaf1, numLeaf2);
-		ASTValue result = testNode.eval(environment);
-		assertEquals("Creates a boolean", result.type, ASTValue.Type.BOOLEAN);
+		Variable result = testNode.eval(environment);
+		assertEquals("Creates a boolean", result.type, Variable.Type.BOOLEAN);
 		assertTrue("Result is true", result.booleanValue);
 	}
 	
@@ -36,8 +37,8 @@ public class TestINodeGreater extends TestINode {
 		AST stringLeaf2 = new LNodeString("string");
 		
 		INode testNode = new INodeGreater(stringLeaf1, stringLeaf2);
-		ASTValue result = testNode.eval(environment);
-		assertEquals("Creates a boolean", result.type, ASTValue.Type.BOOLEAN);
+		Variable result = testNode.eval(environment);
+		assertEquals("Creates a boolean", result.type, Variable.Type.BOOLEAN);
 		assertFalse("Result is false", result.booleanValue);
 	}
 	
@@ -47,8 +48,8 @@ public class TestINodeGreater extends TestINode {
 		AST stringLeaf2 = new LNodeString("abcde");
 		
 		INode testNode = new INodeGreater(stringLeaf1, stringLeaf2);
-		ASTValue result = testNode.eval(environment);
-		assertEquals("Creates a boolean", result.type, ASTValue.Type.BOOLEAN);
+		Variable result = testNode.eval(environment);
+		assertEquals("Creates a boolean", result.type, Variable.Type.BOOLEAN);
 		assertTrue("Result is true", result.booleanValue);
 	}
 	

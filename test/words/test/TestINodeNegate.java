@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.ast.*;
 import words.exceptions.*;
 
@@ -12,8 +13,8 @@ public class TestINodeNegate extends TestINode {
 		AST numLeaf1 = new LNodeNum(3);
 		
 		INode testNode = new INodeNegate(numLeaf1);
-		ASTValue result = testNode.eval(environment);
-		assertTrue("Returns NUM value", result.type == ASTValue.Type.NUM);
+		Variable result = testNode.eval(environment);
+		assertTrue("Returns NUM value", result.type == Variable.Type.NUM);
 		assertEquals("Correct Negation", result.numValue, -3.0, 0.0001);
 	}
 	

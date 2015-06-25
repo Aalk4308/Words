@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 
 /**
@@ -16,7 +17,7 @@ public class LNodeNothing extends LNode {
 	}
 	
 	@Override
-	public ASTValue eval(Environment environment) {
-		return new ASTValue(ASTValue.Type.NOTHING);
+	public Variable eval(Environment environment) {
+		return new Variable(Variable.Type.NOTHING);
 	}
 }

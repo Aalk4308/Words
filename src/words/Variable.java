@@ -1,11 +1,13 @@
-package words.ast;
+package words;
 
-import words.environment.*;
+import words.environment.Direction;
+import words.environment.Position;
+import words.environment.WordsObject;
 
 /**
  * A dynamically-typed value that an AST node can return as its result.
  */
-public class ASTValue {
+public class Variable {
 	public enum Type {
 		BOOLEAN,
 		NUM,
@@ -14,6 +16,7 @@ public class ASTValue {
 		DIRECTION,
 		POSITION,
 		NOW,
+		VARIABLE,
 		NOTHING
 	}
 	public Type type;
@@ -25,59 +28,37 @@ public class ASTValue {
 	public Direction directionValue;
 	public Position positionValue;
 	
-	public ASTValue(Property property) {
-		switch (property.type) {
-			case NOTHING:
-				this.type = ASTValue.Type.NOTHING;
-				break;
-			case NUM:
-				this.type = Type.NUM;
-				this.numValue = property.numProperty;
-				break;
-			case OBJECT:
-				this.type = Type.OBJ;
-				this.objValue = property.objProperty;
-				break;
-			case STRING:
-				this.type = Type.STRING;
-				this.stringValue = property.stringProperty;
-				break;
-			default:
-				break;
-		}
-	}
-	
-	public ASTValue(boolean b) {
+	public Variable(boolean b) {
 		this.type = Type.BOOLEAN;
 		this.booleanValue = b;
 	}
 	
-	public ASTValue(double num) {
+	public Variable(double num) {
 		this.type = Type.NUM;
 		this.numValue = num;
 	}	
 
-	public ASTValue(String s) {
+	public Variable(String s) {
 		this.type = Type.STRING;
 		this.stringValue = s;
 	}
 	
-	public ASTValue(WordsObject obj) {
+	public Variable(WordsObject obj) {
 		this.type = Type.OBJ;
 		this.objValue = obj;
 	}
 	
-	public ASTValue(Direction d) {
+	public Variable(Direction d) {
 		this.type = Type.DIRECTION;
 		this.directionValue = d;
 	}
 
-	public ASTValue(Position p) {
+	public Variable(Position p) {
 		this.type = Type.POSITION;
 		this.positionValue = p;
 	}
 	
-	public ASTValue(Type type) {
+	public Variable(Type type) {
 		this.type = type;
 	}
 	
@@ -88,7 +69,7 @@ public class ASTValue {
 	 * 
 	 * @return self
 	 */
-	public ASTValue tryCoerceTo(Type newType) {
+	public Variable tryCoerceTo(Type newType) {
 		switch(newType) {
 			case NUM:
 				if (type == Type.STRING) {
@@ -112,27 +93,16 @@ public class ASTValue {
 			default:
 				break;
 		}
-		
 		return this;
 	}
 	
-	/**
-	 * Returns a WordsProperty object of type NUM, STRING, OBJ, or NOTHING
-	 * corresponding to this ASTValue.  Calling on an ASTValue with a type
-	 * other than those listed above is prohibited.
-	 */
-	public Property toWordsProperty() {
-		switch (this.type) {
-			case NUM:
-				return new Property(this.numValue);
-			case STRING:
-				return new Property(this.stringValue);
-			case OBJ:
-				return new Property(this.objValue);
-			case NOTHING:
-				return new Property(Property.PropertyType.NOTHING);
-			default:
-				throw new AssertionError("Cannot convert ASTValue of type " + this.type.toString() + "to WordsProperty");
-		}
+	public void copyOtherVariable(Variable other) {
+		this.type = other.type;
+		this.booleanValue = other.booleanValue;
+		this.directionValue = other.directionValue;
+		this.numValue = other.numValue;
+		this.objValue = other.objValue;
+		this.positionValue = other.positionValue;
+		this.stringValue = other.stringValue;
 	}
 }

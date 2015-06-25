@@ -2,6 +2,7 @@ package words.environment;
 
 import java.util.HashSet;
 
+import words.Variable;
 import words.exceptions.*;
 import words.ast.*;
 
@@ -33,7 +34,7 @@ public class CustomActionDefinition {
 		// Install the pronouns to point to the given object
 		String[] pronouns = {"them", "it", "him", "her", "his", "its", "their", "Her", "His", "Its", "Their"};
 		for (String pronoun : pronouns) {
-			environment.addToCurrentScope(pronoun, new Property(object));
+			environment.addToCurrentScope(pronoun, new Variable(object));
 		}
 
 		try {

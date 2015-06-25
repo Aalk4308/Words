@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.ast.*;
 import words.environment.*;
 import words.exceptions.*;
@@ -18,7 +19,7 @@ public class TestINodeReset extends TestINode {
 		INodeReset testNode = new INodeReset();
 		testNode.eval(environment);
 		
-		Property property = environment.getVariable("Alex");
-		assertEquals("Object has disappeared", property.type, Property.PropertyType.NOTHING);
+		Variable property = environment.getVariable("Alex");
+		assertEquals("Object has disappeared", property.type, Variable.Type.NOTHING);
 	}
 }

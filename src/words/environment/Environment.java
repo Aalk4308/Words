@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import words.Variable;
 import words.exceptions.*;
 import words.ast.*;
 
@@ -127,19 +128,32 @@ public class Environment {
 	 * @throws WordsRuntimeException
 	 */
 	public WordsObject createObject(String objectName, String className, Position position) throws WordsRuntimeException {
-		Property property = getVariable(objectName);
+		WordsClass wordsClass = getClass(className);
+		WordsObject newObject = new WordsObject(objectName, wordsClass, position);
+		createLocalVariable(objectName, new Variable(newObject));
 		
-		if (property.type == Property.PropertyType.NOTHING) {
-			WordsClass wordsClass = getClass(className);
-			
-			WordsObject newObject = new WordsObject(objectName, wordsClass, position);
-			getCurrentScope().variables.put(objectName, new Property(newObject));
-			
-			objectsByClass.get(wordsClass).add(newObject);
-			
-			return newObject;
+		return newObject;
+	}
+	
+	/**
+	 * Creates a new local variable in the environment. If a variable of the same name already exists, 
+	 * it will overwrite the existing variable unless the existing variable is an object.
+	 * When successful, the variable is added to the current scope
+	 * @throws ObjectAlreadyExistsException
+	 */
+	public void createLocalVariable(String varName, Variable value) throws ObjectAlreadyExistsException {
+		Variable existingVariable = getVariable(varName);
+		if (existingVariable.type == Variable.Type.OBJ) {
+			throw new ObjectAlreadyExistsException(varName);
+		} else if (existingVariable.type != Variable.Type.NOTHING) {
+			existingVariable.copyOtherVariable(value);
 		} else {
-			throw new ObjectAlreadyExistsException(objectName);
+			getCurrentScope().variables.put(varName, value);
+		}
+		
+		// If this variable is an object, also add it to objects by class
+		if (value.type == Variable.Type.OBJ) {
+			objectsByClass.get(value.objValue.getWordsClass()).add(value.objValue);
 		}
 	}
 	
@@ -148,9 +162,9 @@ public class Environment {
 		objectsByClass.get(object.getWordsClass()).remove(object);
 		
 		for (Scope scope : stack) {
-			for (Iterator<Property> iterator = scope.variables.values().iterator(); iterator.hasNext();) {
-				Property property = iterator.next();
-				if (property.type == Property.PropertyType.OBJECT && property.objProperty == object) {
+			for (Iterator<Variable> iterator = scope.variables.values().iterator(); iterator.hasNext();) {
+				Variable property = iterator.next();
+				if (property.type == Variable.Type.OBJ && property.objValue == object) {
 					iterator.remove();
 				}
 			}
@@ -174,7 +188,7 @@ public class Environment {
 	/**
 	 * Adds a variable to the current scope.
 	 */
-	public void addToCurrentScope(String variableName, Property variable) {
+	public void addToCurrentScope(String variableName, Variable variable) {
 		getCurrentScope().variables.put(variableName, variable);
 	}
 	
@@ -182,8 +196,8 @@ public class Environment {
 	 * Looks up a variable in the current scope and its parents and returns it if found.  If not found, returns NOTHING.
 	 * Does not iterate through the stack but uses the scope's parents as an access link.
 	 */
-	public Property getVariable(String variableName) {
-		Property prop = null;
+	public Variable getVariable(String variableName) {
+		Variable prop = null;
 		Scope scope = getCurrentScope();
 		
 		while (scope != null) {
@@ -194,7 +208,7 @@ public class Environment {
 		}
 		
 		if (prop == null) {
-			return new Property(Property.PropertyType.NOTHING);
+			return new Variable(Variable.Type.NOTHING);
 		} else {
 			return prop;	
 		}

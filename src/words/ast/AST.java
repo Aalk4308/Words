@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -25,7 +26,7 @@ public abstract class AST {
 	 * 
 	 * @throws WordsRuntimeException 
 	 */
-	public abstract ASTValue eval(Environment environment) throws WordsRuntimeException;
+	public abstract Variable eval(Environment environment) throws WordsRuntimeException;
 
 	/**
 	 * Evaluate an AST node using inherited attributes to return an ASTValue and possibly having side effects on the passed environment.
@@ -35,5 +36,5 @@ public abstract class AST {
 	 * 
 	 * @throws WordsRuntimeException
 	 */
-	public ASTValue eval(Environment environment, Object inherited) throws WordsRuntimeException { return eval(environment); };
+	public Variable eval(Environment environment, Object inherited) throws WordsRuntimeException { return eval(environment); };
 }

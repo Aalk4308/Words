@@ -73,7 +73,7 @@
 %type <obj> class_definition_statement_list
 %type <obj> class_definition_statement
 %type <obj> listener_declare_statement
-%type <obj> object_create_statement
+%type <obj> variable_create_statement
 %type <obj> object_destroy_statement
 %type <obj> property_assign_statement
 %type <obj> iteration_statement
@@ -141,7 +141,7 @@ non_declarative_statement:
 	|	queueing_statement			{ $$ = $1; }
 
 immediate_statement:
-		object_create_statement		{ $$ = $1; }
+		variable_create_statement		{ $$ = $1; }
 	|	object_destroy_statement	{ $$ = $1; }
 	|	property_assign_statement	{ $$ = $1; }
 	|	iteration_statement			{ $$ = $1; }
@@ -169,8 +169,9 @@ listener_declare_statement:
 	|	AS LONG AS predicate '{' non_declarative_statement_list '}'									{ $$ = new INodeListener($4, $6, new LNodeBoolean(true)); ((AST) $$).lineNumber = lexer.lineNumber; }
 	;
 
-object_create_statement:
+variable_create_statement:
 		identifier IS A identifier AT position '.'									{ $$ = new INodeCreateObject($1, $4, $6); ((AST) $$).lineNumber = lexer.lineNumber; }
+	|	identifier IS value_expression '.'											{ $$ = new INodeCreateLocalVariable($1, $3); ((AST) $$).lineNumber = lexer.lineNumber; }
 	;
 
 object_destroy_statement:

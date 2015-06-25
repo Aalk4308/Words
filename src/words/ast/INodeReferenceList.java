@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -13,29 +14,29 @@ public class INodeReferenceList extends INode {
 	 * Returns ASTValue.ValueType.NOTHING if no children. Returns an ASTValue of type OBJ if all references are to objects.
 	 * Throws WordsReferenceException if some reference isn't to an object.
 	 */
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
+	public Variable eval(Environment environment) throws WordsRuntimeException {
 		if (children.size() == 0) {
-			return new ASTValue(ASTValue.Type.NOTHING);
+			return new Variable(Variable.Type.NOTHING);
 		}
 		
 		String firstObjRefName = children.get(0).eval(environment).stringValue;
-		Property firstProperty = environment.getVariable(firstObjRefName);
+		Variable firstProperty = environment.getVariable(firstObjRefName);
 		
-		if (firstProperty.type != Property.PropertyType.OBJECT) {
+		if (firstProperty.type != Variable.Type.OBJ) {
 			throw new ReferenceException(firstObjRefName, firstProperty.type);
 		}
 		
-		WordsObject currentObject = firstProperty.objProperty;
+		WordsObject currentObject = firstProperty.objValue;
 		
 		for (int i = 1; i < children.size(); i++) {
 			String propertyRefName = children.get(i).eval(environment).stringValue;
-			Property prop = currentObject.getProperty(propertyRefName);
-			if (prop.type != Property.PropertyType.OBJECT) {
+			Variable prop = currentObject.getProperty(propertyRefName);
+			if (prop.type != Variable.Type.OBJ) {
 				throw new ReferenceException(propertyRefName, prop.type);
 			}
-			currentObject = prop.objProperty;
+			currentObject = prop.objValue;
 		}
 		
-		return new ASTValue(currentObject);
+		return new Variable(currentObject);
 	}
 }

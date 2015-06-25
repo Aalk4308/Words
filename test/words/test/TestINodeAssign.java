@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.ast.*;
 import words.environment.*;
 import words.exceptions.*;
@@ -18,7 +19,7 @@ public class TestINodeAssign extends TestINode {
 		INodeAssign numAssign = new INodeAssign(alexRefList, new LNodeIdentifier("height"), fiveLeaf);
 		numAssign.eval(environment);
 		
-		assertEquals("Number assignment successful", alexObject.getProperty("height").numProperty, 5.0, .0001);
+		assertEquals("Number assignment successful", alexObject.getProperty("height").numValue, 5.0, .0001);
 	}
 	
 	@Test
@@ -30,7 +31,7 @@ public class TestINodeAssign extends TestINode {
 		INodeAssign stringAssign = new INodeAssign(alexRefList, new LNodeIdentifier("greeting"), stringLeaf);
 		stringAssign.eval(environment);
 
-		assertEquals("String assignment successful", alexObject.getProperty("greeting").stringProperty, "string");
+		assertEquals("String assignment successful", alexObject.getProperty("greeting").stringValue, "string");
 	}
 	
 	@Test
@@ -44,8 +45,8 @@ public class TestINodeAssign extends TestINode {
 		
 		INodeAssign objAssign = new INodeAssign(alexRefList, new LNodeIdentifier("friend"), new INodeRetrieveProperty(new INodeReferenceList(), bobIdentifier));
 		objAssign.eval(environment);
-		assertEquals("Object assignment assigned correct type", alexObject.getProperty("friend").type, Property.PropertyType.OBJECT);
-		assertEquals("Object assignment successful", alexObject.getProperty("friend").objProperty, bobObject);
+		assertEquals("Object assignment assigned correct type", alexObject.getProperty("friend").type, Variable.Type.OBJ);
+		assertEquals("Object assignment successful", alexObject.getProperty("friend").objValue, bobObject);
 	}
 	
 	@Test
@@ -57,7 +58,7 @@ public class TestINodeAssign extends TestINode {
 		INodeAssign nothingAssign = new INodeAssign(alexRefList, new LNodeIdentifier("myNothing"), nothingLeaf);
 		nothingAssign.eval(environment);
 		
-		assertEquals("Nothing assignment successful", alexObject.getProperty("myNothing").type, Property.PropertyType.NOTHING);
+		assertEquals("Nothing assignment successful", alexObject.getProperty("myNothing").type, Variable.Type.NOTHING);
 	}
 	
 	@Test (expected = ReferenceException.class)

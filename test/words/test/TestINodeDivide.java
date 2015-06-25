@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.ast.*;
 import words.exceptions.*;
 
@@ -13,8 +14,8 @@ public class TestINodeDivide extends TestINode {
 		AST numLeaf2 = new LNodeNum(2);
 		
 		INode testNode = new INodeDivide(numLeaf1, numLeaf2);
-		ASTValue result = testNode.eval(environment);
-		assertTrue("Returns NUM value", result.type == ASTValue.Type.NUM);
+		Variable result = testNode.eval(environment);
+		assertTrue("Returns NUM value", result.type == Variable.Type.NUM);
 		assertEquals("Correct Division", result.numValue, 0.5, 0.0001);
 	}
 	

@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -30,7 +31,7 @@ public class TestEnvironment {
 			// Objects are created directly with object literals instead of evaluated leaf nodes
 			// If we evaluated leaf nodes, we would be testing multiple things in the same method. 
 			newObject = environment.createObject("Alex", "thing", new Position(0,0));
-			receivedObject = environment.getVariable("Alex").objProperty;
+			receivedObject = environment.getVariable("Alex").objValue;
 		} catch (WordsRuntimeException e) {
 			// If we have an exception, immediately fail the run.
 			fail();
@@ -85,7 +86,7 @@ public class TestEnvironment {
 				// Objects are created directly with object literals instead of evaluated leaf nodes
 				// If we evaluated leaf nodes, we would be testing multiple things in the same method. 
 				newObject = environment.createObject("Alex", "thing", new Position(0,0));
-				receivedObject = environment.getVariable("Alex").objProperty;
+				receivedObject = environment.getVariable("Alex").objValue;
 			} catch (WordsRuntimeException e) {
 				// If we have an exception, immediately fail the run.
 				fail();
@@ -122,8 +123,8 @@ public class TestEnvironment {
 			fail();
 		}
 		environment.popScope();
-		Property property = environment.getVariable("Alex");
-		assertEquals("Variable did not exist after popping local scope", property.type, Property.PropertyType.NOTHING);
+		Variable property = environment.getVariable("Alex");
+		assertEquals("Variable did not exist after popping local scope", property.type, Variable.Type.NOTHING);
 	}
 	
 	@Test
@@ -154,28 +155,28 @@ public class TestEnvironment {
 		}
 		
 		// Only James and Andrew should be visible now.  The scope containing Alex should be skipped
-		Property property;
+		Variable property;
 		
 		property = environment.getVariable("James");
-		assertEquals("Variable existed as expected in local scope", property.objProperty, James);
+		assertEquals("Variable existed as expected in local scope", property.objValue, James);
 		
 		property = environment.getVariable("Andrew");
-		assertEquals("Variable existed as expected by accessing outer scope", property.objProperty, Andrew);
+		assertEquals("Variable existed as expected by accessing outer scope", property.objValue, Andrew);
 		
 		property = environment.getVariable("Alex");
-		assertEquals("Variable did not exist after popping local scope", property.type, Property.PropertyType.NOTHING);		
+		assertEquals("Variable did not exist after popping local scope", property.type, Variable.Type.NOTHING);		
 		
 		environment.popScope();
 		
 		// Now Alex and Andrew should be visible.
 		property = environment.getVariable("Alex");
-		assertEquals("Variable existed as expected in local scope", property.objProperty, Alex);
+		assertEquals("Variable existed as expected in local scope", property.objValue, Alex);
 		
 		property = environment.getVariable("Andrew");
-		assertEquals("Variable existed as expected by accessing outer scope", property.objProperty, Andrew);
+		assertEquals("Variable existed as expected by accessing outer scope", property.objValue, Andrew);
 		
 		property = environment.getVariable("James");
-		assertEquals("Variable did not exist after popping local scope", property.type, Property.PropertyType.NOTHING);
+		assertEquals("Variable did not exist after popping local scope", property.type, Variable.Type.NOTHING);
 	}
 
 	/****************************************
@@ -194,7 +195,7 @@ public class TestEnvironment {
 	public void basicClassWithObject() throws WordsRuntimeException {
 		environment.createClass("Person", "thing");
 		WordsObject newObject = environment.createObject("James", "Person", new Position(0.0, 0.0));
-		WordsObject receivedObject = environment.getVariable("James").objProperty;
+		WordsObject receivedObject = environment.getVariable("James").objValue;
 		
 		assertEquals("Object of class created and retrieved", newObject, receivedObject);
 		assertEquals("Object is of correct class", newObject.getClassName(), "Person");
@@ -203,39 +204,39 @@ public class TestEnvironment {
 	@Test
 	public void singleInheritance() throws WordsRuntimeException {
 		WordsClass parentClass = environment.createClass("Person", "thing");
-		parentClass.setProperty("height", new Property(5.0));
+		parentClass.setProperty("height", new Variable(5.0));
 		
 		environment.createClass("Man", "Person");
 		WordsObject childObject = environment.createObject("Dude", "Man", new Position(0.0, 0.0));
 		
-		assertEquals("Child class inherits property", childObject.getProperty("height").numProperty, 5.0, .0001);
+		assertEquals("Child class inherits property", childObject.getProperty("height").numValue, 5.0, .0001);
 	}
 	
 	@Test
 	public void skipGenerationInheritance() throws WordsRuntimeException {
 		WordsClass grandParentClass = environment.createClass("Person", "thing");
-		grandParentClass.setProperty("height", new Property(5.0));
+		grandParentClass.setProperty("height", new Variable(5.0));
 		
 		environment.createClass("Man", "Person");
 		environment.createClass("Boy", "Man");
 		WordsObject grandChildObject = environment.createObject("Sonnie", "Boy", new Position(0.0, 0.0));
 		
-		assertEquals("Grandchild class inherits property", grandChildObject.getProperty("height").numProperty, 5.0, .0001);
+		assertEquals("Grandchild class inherits property", grandChildObject.getProperty("height").numValue, 5.0, .0001);
 	}
 	
 	@Test
 	public void compoundInheritance() throws WordsRuntimeException {
 		WordsClass grandParentClass = environment.createClass("Person", "thing");
-		grandParentClass.setProperty("height", new Property(5.0));
+		grandParentClass.setProperty("height", new Variable(5.0));
 		
 		WordsClass parentClass = environment.createClass("Man", "Person");
-		parentClass.setProperty("language", new Property("wordz"));
+		parentClass.setProperty("language", new Variable("wordz"));
 		
 		environment.createClass("Boy", "Man");
 		WordsObject grandChildObject = environment.createObject("Sonnie", "Boy", new Position(0.0, 0.0));
 		
-		assertEquals("Grandchild class inherits grandparent property", grandChildObject.getProperty("height").numProperty, 5.0, .0001);
-		assertEquals("Grandchild class inherits parent property", grandChildObject.getProperty("language").stringProperty, "wordz");
+		assertEquals("Grandchild class inherits grandparent property", grandChildObject.getProperty("height").numValue, 5.0, .0001);
+		assertEquals("Grandchild class inherits parent property", grandChildObject.getProperty("language").stringValue, "wordz");
 	}
 	
 	@Test

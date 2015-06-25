@@ -1,5 +1,6 @@
 package words.environment;
 
+import words.Variable;
 import words.exceptions.*;
 import words.ast.*;
 
@@ -32,14 +33,14 @@ public class WordsEventListener {
 			}
 			return !temporary || predVal;
 		} else {
-			ASTValue predicateValue;
+			Variable predicateValue;
 			try {
 				predicateValue = predicate.eval(environment);
 			} catch (WordsRuntimeException e) {
 				throw new WordsProgramException(predicate, e);
 			}
 			
-			assert predicateValue.type == ASTValue.Type.BOOLEAN : "Predicate has type " + predicateValue.type.toString();
+			assert predicateValue.type == Variable.Type.BOOLEAN : "Predicate has type " + predicateValue.type.toString();
 	
 			if (predicateValue.booleanValue == true) {
 				try {

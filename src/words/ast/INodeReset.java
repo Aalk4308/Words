@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -9,7 +10,7 @@ public class INodeReset extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
+	public Variable eval(Environment environment) throws WordsRuntimeException {
 		environment.resetEnvironment();
 		
 		return null;

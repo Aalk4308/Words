@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 
 /**
@@ -19,7 +20,7 @@ public class LNodeIdentifier extends LNode {
 	}
 	
 	@Override
-	public ASTValue eval(Environment environment) {
-		return new ASTValue(this.identifier);
+	public Variable eval(Environment environment) {
+		return new Variable(this.identifier);
 	}
 }

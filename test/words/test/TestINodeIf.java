@@ -19,7 +19,7 @@ public class TestINodeIf extends TestINode {
 		loop.fastForwardEnvironment(1); //object is created with a 1 frame wait, so use it up. 
 		loop.enqueueAST(testNode);
 		loop.fastForwardEnvironment(2);
-		assertEquals("Fred has moved correctly", environment.getVariable("Fred").objProperty.getCurrentPosition(), new Position(2,0));
+		assertEquals("Fred has moved correctly", environment.getVariable("Fred").objValue.getCurrentPosition(), new Position(2,0));
 	}
 	
 	@Test
@@ -32,6 +32,6 @@ public class TestINodeIf extends TestINode {
 		loop.fastForwardEnvironment(1); //object is created with a 1 frame wait, so use it up. 
 		loop.enqueueAST(testNode);
 		loop.fastForwardEnvironment(2);
-		assertEquals("Fred has not moved", environment.getVariable("Fred").objProperty.getCurrentPosition(), new Position(0,0));
+		assertEquals("Fred has not moved", environment.getVariable("Fred").objValue.getCurrentPosition(), new Position(0,0));
 	}
 }

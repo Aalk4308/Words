@@ -1,6 +1,7 @@
 package words.environment;
 import java.util.LinkedList;
 
+import words.Variable;
 import words.exceptions.*;
 import words.ast.*;
 
@@ -34,15 +35,15 @@ public class WaitAction extends Action {
 	public LinkedList<Action> doExpand(WordsObject object, Environment environment) throws WordsProgramException {
 		assert lengthExpression != null : "Length expression for Wait is null";
 
-		ASTValue value;
+		Variable value;
 		try {
-			value = lengthExpression.eval(environment).tryCoerceTo(ASTValue.Type.NUM);
+			value = lengthExpression.eval(environment).tryCoerceTo(Variable.Type.NUM);
 		} catch (WordsRuntimeException e) {
 			throw new WordsProgramException(lengthExpression, e);
 		}
 
-		if (value.type != ASTValue.Type.NUM) {
-			throw new WordsProgramException(lengthExpression, new InvalidTypeException(ASTValue.Type.NUM.toString(), value.type.toString()));
+		if (value.type != Variable.Type.NUM) {
+			throw new WordsProgramException(lengthExpression, new InvalidTypeException(Variable.Type.NUM.toString(), value.type.toString()));
 		}
 
 		int lengthValue = (int) Math.round(value.numValue);

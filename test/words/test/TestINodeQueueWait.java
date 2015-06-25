@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.ast.*;
 import words.environment.*;
 import words.exceptions.*;
@@ -22,13 +23,13 @@ public class TestINodeQueueWait extends TestINode {
 		sayNode.eval(environment);
 
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 1 turn", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 1 turn", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 2 turns", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 2 turns", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 3 turns", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 3 turns", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("End of wait", environment.getVariable("Fred").objProperty.getCurrentMessage(), "Hello World");
+		assertEquals("End of wait", environment.getVariable("Fred").objValue.getCurrentMessage(), "Hello World");
 	}
 
 	@Test
@@ -37,11 +38,11 @@ public class TestINodeQueueWait extends TestINode {
 		LNodeReference alexRef = new LNodeReference("Alex's");
 
 		WordsObject bobObject = environment.createObject("Bob", "thing", new Position(0, 0));
-		alexObject.setProperty("friend", new Property(bobObject));
+		alexObject.setProperty("friend", new Variable(bobObject));
 		LNodeReference friendRef = new LNodeReference("friend's");
 
 		WordsObject chrisObject = environment.createObject("Chris", "thing", new Position(0, 0));
-		bobObject.setProperty("enemy", new Property(chrisObject));
+		bobObject.setProperty("enemy", new Variable(chrisObject));
 
 		loop.fastForwardEnvironment(1); //object is created with a 1 frame wait, so use it up.
 
@@ -55,13 +56,13 @@ public class TestINodeQueueWait extends TestINode {
 		sayNode.eval(environment);
 
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 1 turn", environment.getVariable("Chris").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 1 turn", environment.getVariable("Chris").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 2 turns", environment.getVariable("Chris").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 2 turns", environment.getVariable("Chris").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 3 turns", environment.getVariable("Chris").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 3 turns", environment.getVariable("Chris").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("End of wait", environment.getVariable("Chris").objProperty.getCurrentMessage(), "Hello World");
+		assertEquals("End of wait", environment.getVariable("Chris").objValue.getCurrentMessage(), "Hello World");
 	}
 
 	@Test
@@ -78,13 +79,13 @@ public class TestINodeQueueWait extends TestINode {
 		testNode2.eval(environment);
 
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 1 turn", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 1 turn", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 2 turns", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 2 turns", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 3 turns", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 3 turns", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Queued message", environment.getVariable("Fred").objProperty.getCurrentMessage(), "Queued message");
+		assertEquals("Queued message", environment.getVariable("Fred").objValue.getCurrentMessage(), "Queued message");
 	}
 
 	@Test
@@ -102,13 +103,13 @@ public class TestINodeQueueWait extends TestINode {
 		sayNode.eval(environment);
 
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 1 turn", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 1 turn", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 2 turns", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 2 turns", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("Wait 3 turns", environment.getVariable("Fred").objProperty.getCurrentMessage(), null);
+		assertEquals("Wait 3 turns", environment.getVariable("Fred").objValue.getCurrentMessage(), null);
 		loop.fastForwardEnvironment(1);
-		assertEquals("End of wait", environment.getVariable("Fred").objProperty.getCurrentMessage(), "Hello World");
+		assertEquals("End of wait", environment.getVariable("Fred").objValue.getCurrentMessage(), "Hello World");
 	}
 
 }

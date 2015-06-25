@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -9,9 +10,9 @@ public class INodeCreateClass extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
-		ASTValue className  = this.children.get(0).eval(environment);
-		ASTValue parentClassName = this.children.get(1).eval(environment);
+	public Variable eval(Environment environment) throws WordsRuntimeException {
+		Variable className  = this.children.get(0).eval(environment);
+		Variable parentClassName = this.children.get(1).eval(environment);
 		WordsClass wordsClass = environment.createClass(className.stringValue, parentClassName.stringValue);
 		
 		INodeClassStatementList statementList = (INodeClassStatementList) this.children.get(2);

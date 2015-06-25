@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -9,18 +10,18 @@ public class INodePosition extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
-		ASTValue row = children.get(0).eval(environment).tryCoerceTo(ASTValue.Type.NUM);
-		ASTValue col = children.get(1).eval(environment).tryCoerceTo(ASTValue.Type.NUM);
+	public Variable eval(Environment environment) throws WordsRuntimeException {
+		Variable row = children.get(0).eval(environment).tryCoerceTo(Variable.Type.NUM);
+		Variable col = children.get(1).eval(environment).tryCoerceTo(Variable.Type.NUM);
 		
-		if (row.type != ASTValue.Type.NUM) {
-			throw new InvalidTypeException(ASTValue.Type.NUM.toString(), row.type.toString());
+		if (row.type != Variable.Type.NUM) {
+			throw new InvalidTypeException(Variable.Type.NUM.toString(), row.type.toString());
 		}
 		
-		if (col.type != ASTValue.Type.NUM) {
-			throw new InvalidTypeException(ASTValue.Type.NUM.toString(), col.type.toString());
+		if (col.type != Variable.Type.NUM) {
+			throw new InvalidTypeException(Variable.Type.NUM.toString(), col.type.toString());
 		}
 		
-		return new ASTValue(new Position(row.numValue, col.numValue));
+		return new Variable(new Position(row.numValue, col.numValue));
 	}
 }

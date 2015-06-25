@@ -2,6 +2,7 @@ package words.ast;
 import java.util.ArrayList;
 import java.lang.StringBuilder;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -79,11 +80,11 @@ public abstract class INode extends AST {
 	 * If the reference list is not empty, it is evaluated and the corresponding Property is that on the final object in the reference list.
 	 * If the reference list is empty, the corresponding Property is a variable directly from the environment.
 	 */
-	public static Property lookupProperty(Environment environment, AST referenceObjectAST, AST identifierAST) throws WordsRuntimeException {
-		ASTValue referenceObject = referenceObjectAST.eval(environment);
-		ASTValue identifier = identifierAST.eval(environment);
+	public static Variable lookupProperty(Environment environment, AST referenceObjectAST, AST identifierAST) throws WordsRuntimeException {
+		Variable referenceObject = referenceObjectAST.eval(environment);
+		Variable identifier = identifierAST.eval(environment);
 		
-		if (referenceObject.type.equals(ASTValue.Type.OBJ)){
+		if (referenceObject.type.equals(Variable.Type.OBJ)){
 			return referenceObject.objValue.getProperty(identifier.stringValue);
 		} else {
 			return environment.getVariable(identifier.stringValue);

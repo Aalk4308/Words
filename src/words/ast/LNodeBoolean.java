@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.Environment;
 import words.exceptions.WordsRuntimeException;
 
@@ -17,8 +18,8 @@ public class LNodeBoolean extends LNode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
-		return new ASTValue(val);
+	public Variable eval(Environment environment) throws WordsRuntimeException {
+		return new Variable(val);
 	}
 
 }

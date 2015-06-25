@@ -1,6 +1,7 @@
 package words.environment;
 import java.util.LinkedList;
 
+import words.Variable;
 import words.exceptions.*;
 import words.ast.*;
 
@@ -73,15 +74,15 @@ public class MoveAction extends Action {
 
 	@Override
 	public LinkedList<Action> doExpand(WordsObject object, Environment environment) throws WordsProgramException {
-		ASTValue value;
+		Variable value;
 		try {
-			value = distanceExpression.eval(environment).tryCoerceTo(ASTValue.Type.NUM);
+			value = distanceExpression.eval(environment).tryCoerceTo(Variable.Type.NUM);
 		} catch (WordsRuntimeException e) {
 			throw new WordsProgramException(distanceExpression, e);
 		}
 
-		if (value.type != ASTValue.Type.NUM) {
-			throw new WordsProgramException(distanceExpression, new InvalidTypeException(ASTValue.Type.NUM.toString(), value.type.toString()));
+		if (value.type != Variable.Type.NUM) {
+			throw new WordsProgramException(distanceExpression, new InvalidTypeException(Variable.Type.NUM.toString(), value.type.toString()));
 		}
 
 		int distanceValue = (int) Math.round(value.numValue);

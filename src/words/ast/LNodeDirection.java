@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 
 /**
@@ -19,7 +20,7 @@ public class LNodeDirection extends LNode {
 	}
 	
 	@Override
-	public ASTValue eval(Environment environment) {
-		return new ASTValue(this.direction);
+	public Variable eval(Environment environment) {
+		return new Variable(this.direction);
 	}
 }

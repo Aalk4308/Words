@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.ast.*;
 import words.environment.*;
 import words.exceptions.*;
@@ -13,9 +14,9 @@ public class TestINodeReferenceList extends TestINode {
 	@Test
 	public void testSizeZero() throws WordsRuntimeException {
 		INodeReferenceList refList = new INodeReferenceList();
-		ASTValue nothingValue = refList.eval(environment);
+		Variable nothingValue = refList.eval(environment);
 		
-		assertEquals(nothingValue.type, ASTValue.Type.NOTHING);
+		assertEquals(nothingValue.type, Variable.Type.NOTHING);
 	}
 	
 	@Test
@@ -24,7 +25,7 @@ public class TestINodeReferenceList extends TestINode {
 		LNodeReference alexRef = new LNodeReference("Alex's");
 		INodeReferenceList alexRefList = new INodeReferenceList(alexRef);
 		
-		ASTValue alexValue = alexRefList.eval(environment);
+		Variable alexValue = alexRefList.eval(environment);
 		assertEquals(alexValue.objValue, alexObject);
 	}
 	
@@ -34,12 +35,12 @@ public class TestINodeReferenceList extends TestINode {
 		LNodeReference alexRef = new LNodeReference("Alex's");
 		
 		WordsObject bobObject = environment.createObject("Bob", "thing", new Position(0, 0));
-		alexObject.setProperty("friend", new Property(bobObject));
+		alexObject.setProperty("friend", new Variable(bobObject));
 		
 		LNodeReference friendRef = new LNodeReference("friend");
 		INodeReferenceList refList = new INodeReferenceList(alexRef, friendRef);
 		
-		ASTValue alexFriendValue = refList.eval(environment);
+		Variable alexFriendValue = refList.eval(environment);
 		assertEquals(alexFriendValue.objValue, bobObject);
 	}
 	
@@ -49,16 +50,16 @@ public class TestINodeReferenceList extends TestINode {
 		LNodeReference alexRef = new LNodeReference("Alex's");
 		
 		WordsObject bobObject = environment.createObject("Bob", "thing", new Position(0, 0));
-		alexObject.setProperty("friend", new Property(bobObject));
+		alexObject.setProperty("friend", new Variable(bobObject));
 		LNodeReference friendRef = new LNodeReference("friend's");
 		
 		WordsObject chrisObject = environment.createObject("Chris", "thing", new Position(0, 0));
-		bobObject.setProperty("enemy", new Property(chrisObject));
+		bobObject.setProperty("enemy", new Variable(chrisObject));
 		LNodeReference enemyRef = new LNodeReference("enemy");
 		
 		INodeReferenceList refList = new INodeReferenceList(alexRef, friendRef, enemyRef);
 		
-		ASTValue alexFriendValue = refList.eval(environment);
+		Variable alexFriendValue = refList.eval(environment);
 		assertEquals(alexFriendValue.objValue, chrisObject);
 	}
 	
@@ -68,20 +69,20 @@ public class TestINodeReferenceList extends TestINode {
 		LNodeReference alexRef = new LNodeReference("Alex's");
 		
 		WordsObject bobObject = environment.createObject("Bob", "thing", new Position(0, 0));
-		alexObject.setProperty("friend", new Property(bobObject));
+		alexObject.setProperty("friend", new Variable(bobObject));
 		LNodeReference friendRef = new LNodeReference("friend's");
 		
 		WordsObject chrisObject = environment.createObject("Chris", "thing", new Position(0, 0));
-		bobObject.setProperty("enemy", new Property(chrisObject));
+		bobObject.setProperty("enemy", new Variable(chrisObject));
 		LNodeReference enemyRef = new LNodeReference("enemy's");
 		
 		WordsObject dennisObject = environment.createObject("Dennis", "thing", new Position(0, 0));
-		chrisObject.setProperty("dad", new Property(dennisObject));
+		chrisObject.setProperty("dad", new Variable(dennisObject));
 		LNodeReference dadRef = new LNodeReference("dad");
 
 		INodeReferenceList refList = new INodeReferenceList(alexRef, friendRef, enemyRef, dadRef);
 		
-		ASTValue alexFriendValue = refList.eval(environment);
+		Variable alexFriendValue = refList.eval(environment);
 		assertEquals(alexFriendValue.objValue, dennisObject);
 	}
 	
@@ -98,7 +99,7 @@ public class TestINodeReferenceList extends TestINode {
 		WordsObject alexObject = environment.createObject("Alex", "thing", new Position(0, 0));
 		LNodeReference alexRef = new LNodeReference("Alex's");
 		
-		alexObject.setProperty("friend", new Property(6.1));
+		alexObject.setProperty("friend", new Variable(6.1));
 		
 		LNodeReference friendRef = new LNodeReference("friend");
 		INodeReferenceList refList = new INodeReferenceList(alexRef, friendRef);

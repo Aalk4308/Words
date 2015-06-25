@@ -1,6 +1,7 @@
 package words.environment;
 import java.util.LinkedList;
 
+import words.Variable;
 import words.exceptions.*;
 import words.ast.*;
 
@@ -24,15 +25,15 @@ public class SayAction extends Action {
 	protected void doExecute(WordsObject object, Environment environment) throws WordsProgramException {
 		assert message != null : "Say message is null";
 
-		ASTValue value;
+		Variable value;
 		try {
-			value = message.eval(environment).tryCoerceTo(ASTValue.Type.STRING);
+			value = message.eval(environment).tryCoerceTo(Variable.Type.STRING);
 		} catch (WordsRuntimeException e) {
 			throw new WordsProgramException(message, e);
 		}
 
-		if (value.type != ASTValue.Type.STRING) {
-			throw new WordsProgramException(message, new InvalidTypeException(ASTValue.Type.STRING.toString(), value.type.toString()));
+		if (value.type != Variable.Type.STRING) {
+			throw new WordsProgramException(message, new InvalidTypeException(Variable.Type.STRING.toString(), value.type.toString()));
 		}
 
 		object.setMessage(value.stringValue);

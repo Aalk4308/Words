@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -16,42 +17,25 @@ public class INodeRetrieveProperty extends INode {
 	 * Returns NOTHING if the property isn't found.
 	 * Throws a WordsReferenceException if the reference_list or identifier doesn't refer to an object when it's expected to.
 	 */
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
-		ASTValue refList = children.get(0).eval(environment);
-		if (refList.type == ASTValue.Type.NOTHING) {
-			ASTValue id = children.get(1).eval(environment);
+	public Variable eval(Environment environment) throws WordsRuntimeException {
+		Variable refList = children.get(0).eval(environment);
+		if (refList.type == Variable.Type.NOTHING) {
+			Variable id = children.get(1).eval(environment);
 			
-			Property property = environment.getVariable(id.stringValue);
-			return new ASTValue(property);
+			Variable property = environment.getVariable(id.stringValue);
+			return property;
 
 		}
 		
 		WordsObject obj = refList.objValue;
 		assert obj != null : "Obj was null when it shouldn't have been.";
 
-		ASTValue id = children.get(1).eval(environment);
+		Variable id = children.get(1).eval(environment);
 		String propName = id.stringValue;
 		
-		Property wordsProp = obj.getProperty(propName);
-		ASTValue astValue = null;
-		switch (wordsProp.type) {
-			case STRING:
-				astValue = new ASTValue(wordsProp.stringProperty);
-				break;
-			case NUM:
-				astValue = new ASTValue(wordsProp.numProperty);
-				break;
-			case OBJECT:
-				astValue = new ASTValue(wordsProp.objProperty);
-				break;
-			case NOTHING:
-				astValue = new ASTValue(ASTValue.Type.NOTHING);
-				break;
-			default:
-				throw new AssertionError("Shouldn't get here in INodeRetrieveProperty");
-		}
+		Variable wordsProp = obj.getProperty(propName);
 		
-		return astValue;
+		return wordsProp;
 	}
 
 }

@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -15,21 +16,21 @@ public class INodeDefineProperty extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
+	public Variable eval(Environment environment) throws WordsRuntimeException {
 		return null;
 	}
 	
 	@Override
-	public ASTValue eval(Environment environment, Object inherited) throws WordsRuntimeException {
-		ASTValue propertyName = id.eval(environment);
+	public Variable eval(Environment environment, Object inherited) throws WordsRuntimeException {
+		Variable propertyName = id.eval(environment);
 		assert literal != null : "Null property assignment on class creation not allowed by grammar.";
 		
-		ASTValue propertyValue = literal.eval(environment);
-		assert propertyValue.type == ASTValue.Type.STRING || propertyValue.type == ASTValue.Type.NUM:
+		Variable propertyValue = literal.eval(environment);
+		assert propertyValue.type == Variable.Type.STRING || propertyValue.type == Variable.Type.NUM:
 			"Literal wasn't string or number";
 		
 		WordsClass wordsClass = (WordsClass) inherited;
-		wordsClass.setProperty(propertyName.stringValue, propertyValue.toWordsProperty());
+		wordsClass.setProperty(propertyName.stringValue, propertyValue);
 		
 		return null;
 	}

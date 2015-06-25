@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import words.Variable;
 import words.ast.*;
 import words.environment.*;
 import words.exceptions.*;
@@ -15,8 +16,8 @@ public class TestINodePosition extends TestINode {
 		AST numLeaf2 = new LNodeNum(2.1);
 		
 		INode testNode = new INodePosition(numLeaf1, numLeaf2);
-		ASTValue result = testNode.eval(environment);
-		assertEquals("Creates a position", result.type, ASTValue.Type.POSITION);
+		Variable result = testNode.eval(environment);
+		assertEquals("Creates a position", result.type, Variable.Type.POSITION);
 		assertEquals("The position is the right position", result.positionValue, new Position(0,2));
 	}
 	
@@ -26,8 +27,8 @@ public class TestINodePosition extends TestINode {
 		AST stringLeaf = new LNodeString("2.1");
 		
 		INode testNode = new INodePosition(numLeaf, stringLeaf);
-		ASTValue result = testNode.eval(environment);
-		assertEquals("Creates a position", result.type, ASTValue.Type.POSITION);
+		Variable result = testNode.eval(environment);
+		assertEquals("Creates a position", result.type, Variable.Type.POSITION);
 		assertEquals("The position is the right position", result.positionValue, new Position(0,2));
 	}
 	

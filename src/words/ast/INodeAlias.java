@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -9,12 +10,12 @@ public class INodeAlias extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
-		ASTValue identifier = children.size() == 0 ? null : children.get(0).eval(environment);
+	public Variable eval(Environment environment) throws WordsRuntimeException {
+		Variable identifier = children.size() == 0 ? null : children.get(0).eval(environment);
 		if (identifier != null) {
 			return identifier;
 		} else {
-			return new ASTValue(ASTValue.Type.NOTHING);
+			return new Variable(Variable.Type.NOTHING);
 		}
 	}
 }

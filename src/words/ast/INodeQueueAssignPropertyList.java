@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -9,13 +10,13 @@ public class INodeQueueAssignPropertyList extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
+	public Variable eval(Environment environment) throws WordsRuntimeException {
 		assert false : "Requires an inherited object";
 		return null;
 	}
 	
 	@Override
-	public ASTValue eval(Environment environment, Object inherited) throws WordsRuntimeException {
+	public Variable eval(Environment environment, Object inherited) throws WordsRuntimeException {
 		for (AST ast : children) {
 			ast.eval(environment, inherited);
 		}

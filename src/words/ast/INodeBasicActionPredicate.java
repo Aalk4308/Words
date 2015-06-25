@@ -2,6 +2,7 @@ package words.ast;
 
 import java.util.HashSet;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -11,15 +12,15 @@ public abstract class INodeBasicActionPredicate extends INode {
 		super(children);
 	}
 	
-	protected HashSet<WordsObject> getObjectsToCheck(ASTValue subject, Environment environment) throws WordsClassNotFoundException {
+	protected HashSet<WordsObject> getObjectsToCheck(Variable subject, Environment environment) throws WordsClassNotFoundException {
 			HashSet<WordsObject> objectsToCheck = new HashSet<WordsObject>();
-			if (subject.type.equals(ASTValue.Type.STRING)) {
+			if (subject.type.equals(Variable.Type.STRING)) {
 				objectsToCheck = environment.getObjectsByClass(subject.stringValue);
-			} else if (subject.type.equals(ASTValue.Type.OBJ)) {
+			} else if (subject.type.equals(Variable.Type.OBJ)) {
 				objectsToCheck.add(subject.objValue);
 			}
 			return objectsToCheck;
 	}
 	
-	public abstract ASTValue eval(Environment environment, Object inherited) throws WordsRuntimeException;
+	public abstract Variable eval(Environment environment, Object inherited) throws WordsRuntimeException;
 }

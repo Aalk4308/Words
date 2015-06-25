@@ -41,7 +41,7 @@ public class TestINodeAdjacencyPredicate extends TestINode {
 		assertEquals("Fred is right of Bob", rightPredicate.eval(environment, new INodeStatementList()).booleanValue, true);
 		assertEquals("Fred is next to Bob", nextToPredicate.eval(environment, new INodeStatementList()).booleanValue, true);
 		loop.fastForwardEnvironment(1);
-		environment.getVariable("Fred").objProperty.moveRight();
+		environment.getVariable("Fred").objValue.moveRight();
 		assertEquals("Fred is not right of Bob", rightPredicate.eval(environment, new INodeStatementList()).booleanValue, false);
 		assertEquals("Fred is not next to Bob", nextToPredicate.eval(environment, new INodeStatementList()).booleanValue, false);
 		loop.enqueueAST(moveFredLeft2);

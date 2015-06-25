@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import words.environment.Property.PropertyType;
+import words.Variable;
 import words.exceptions.*;
 
 /**
@@ -14,7 +14,7 @@ import words.exceptions.*;
 public class WordsObject {
 	private String objectName;
 	private WordsClass wordsClass;
-	private HashMap<String, Property> properties;
+	private HashMap<String, Variable> properties;
 	private LinkedList<Action> actionQueue;
 	private Position currentPosition;
 	private String currentMessage;
@@ -26,17 +26,17 @@ public class WordsObject {
 	// While an object is expanding a custom action, actions are enqueued in a separate list
 	private boolean isExpandingCustomAction;
 	private LinkedList<Action> customActionExpansion;
-	private HashMap<WordsObject, ArrayList<Property>> referers;
+	private HashMap<WordsObject, ArrayList<Variable>> referers;
 	
 	public WordsObject(String objectName, WordsClass wordsClass, Position cell) {
 		this.wordsClass = wordsClass;
 		this.objectName = objectName;
 		this.currentPosition = cell;
 		this.actionQueue = new LinkedList<Action>();
-		this.properties = new HashMap<String, Property>();
+		this.properties = new HashMap<String, Variable>();
 		this.customActionExpansion = new LinkedList<Action>();
 		this.isExpandingCustomAction = false;
-		this.referers = new HashMap<WordsObject, ArrayList<Property>>();
+		this.referers = new HashMap<WordsObject, ArrayList<Variable>>();
 		this.shouldRemove = false;
 		this.createdInThisFrame = true;
 	}
@@ -81,7 +81,7 @@ public class WordsObject {
 	 * Retrieves a property of an object by looking only at the object itself, ignoring its class chain.
 	 * A missing property returns null.
 	 */
-	private Property getOwnProperty(String propertyName) {
+	private Variable getOwnProperty(String propertyName) {
 		if (properties.containsKey(propertyName))
 			return properties.get(propertyName);
 		else
@@ -92,18 +92,18 @@ public class WordsObject {
 	 * Retrieves a property on an object by looking at the object itself and its class chain.
 	 * A missing property returns a WordsProperty of type NOTHING.
 	 */
-	public Property getProperty(String propertyName) {
+	public Variable getProperty(String propertyName) {
 		// Special handling of "row" "column" "name" and "class" properties
 		if (propertyName.equals("row"))
-			return new Property(currentPosition.y);
+			return new Variable(currentPosition.y);
 		else if (propertyName.equals("column"))
-			return new Property(currentPosition.x);
+			return new Variable(currentPosition.x);
 		else if (propertyName.equals("name"))
-			return new Property(objectName);
+			return new Variable(objectName);
 		else if (propertyName.equals("class"))
-			return new Property(wordsClass.getClassName());
+			return new Variable(wordsClass.getClassName());
 
-		Property property = getOwnProperty(propertyName);
+		Variable property = getOwnProperty(propertyName);
 
 		if (property != null)
 			return property;
@@ -114,17 +114,17 @@ public class WordsObject {
 	/**
 	 * Assigns a property to an object.  Assigning NOTHING removes the property, if it exists.
 	 */
-	public void setProperty(String propertyName, Property property) throws WordsRuntimeException {
+	public void setProperty(String propertyName, Variable property) throws WordsRuntimeException {
 		// Special handling of "row" and "column" properties
 		if (propertyName.equals("row") || propertyName.equals("column")) {
-			if (property.type != Property.PropertyType.NUM) {
-				throw new InvalidTypeException(Property.PropertyType.NUM.toString(), property.type.toString());
+			if (property.type != Variable.Type.NUM) {
+				throw new InvalidTypeException(Variable.Type.NUM.toString(), property.type.toString());
 			}
 
 			if (propertyName.equals("row"))
-				currentPosition.y = (int) Math.round(property.numProperty);
+				currentPosition.y = (int) Math.round(property.numValue);
 			else
-				currentPosition.x = (int) Math.round(property.numProperty);
+				currentPosition.x = (int) Math.round(property.numValue);
 			
 			return;
 		}
@@ -134,20 +134,19 @@ public class WordsObject {
 			throw new ModifyObjectPropertyException(propertyName);
 		}
 
-		if (properties.containsKey(propertyName) && property.type == Property.PropertyType.NOTHING)
+		if (properties.containsKey(propertyName) && property.type == Variable.Type.NOTHING) {
 			properties.remove(propertyName);
-		else {
-			if (property.type == PropertyType.OBJECT) {
-				property.objProperty.updateReferers(this, property);
-			}
-			properties.put(propertyName, property);
 		}
+		if (property.type == Variable.Type.OBJ) {
+			property.objValue.updateReferers(this, property);
+		}
+		properties.put(propertyName, property);
 	}
 	
-	public void updateReferers(WordsObject referringObject, Property referringProperty) {
-		ArrayList<Property> referringProperties;
+	public void updateReferers(WordsObject referringObject, Variable referringProperty) {
+		ArrayList<Variable> referringProperties;
 		if ((referringProperties = referers.get(referringObject)) == null) {
-			referringProperties = new ArrayList<Property>();
+			referringProperties = new ArrayList<Variable>();
 			referers.put(referringObject, referringProperties);
 		}
 		
@@ -155,12 +154,12 @@ public class WordsObject {
 	}
 	
 	public void clearReferers() {
-		for (Iterator<ArrayList<Property>> it = referers.values().iterator(); it.hasNext();) {
-			ArrayList<Property> properties = it.next();
+		for (Iterator<ArrayList<Variable>> it = referers.values().iterator(); it.hasNext();) {
+			ArrayList<Variable> properties = it.next();
 			
-			for (Property property : properties) {
-				property.type = PropertyType.NOTHING;
-				property.objProperty = null;
+			for (Variable property : properties) {
+				property.type = Variable.Type.NOTHING;
+				property.objValue = null;
 			}
 			
 			it.remove();

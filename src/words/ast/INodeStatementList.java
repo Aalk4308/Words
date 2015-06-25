@@ -1,6 +1,7 @@
 package words.ast;
 
 import words.Console;
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -10,7 +11,7 @@ public class INodeStatementList extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
+	public Variable eval(Environment environment) throws WordsRuntimeException {
 		for (int i = 0; i < children.size(); i++) {
 			// At the beginning and end of each statement list, we should be at the same level of scope
 			int startingScopeLevel = environment.getScopeDepth();

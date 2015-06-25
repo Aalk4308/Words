@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -9,14 +10,14 @@ public class INodeSubtract extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
-		ASTValue lhs = children.get(0).eval(environment).tryCoerceTo(ASTValue.Type.NUM);
-		ASTValue rhs = children.get(1).eval(environment).tryCoerceTo(ASTValue.Type.NUM);
+	public Variable eval(Environment environment) throws WordsRuntimeException {
+		Variable lhs = children.get(0).eval(environment).tryCoerceTo(Variable.Type.NUM);
+		Variable rhs = children.get(1).eval(environment).tryCoerceTo(Variable.Type.NUM);
 
-		if ((lhs.type != ASTValue.Type.NUM) || (rhs.type != ASTValue.Type.NUM)) {
+		if ((lhs.type != Variable.Type.NUM) || (rhs.type != Variable.Type.NUM)) {
 			throw new WordsArithmeticException(lhs.type.toString(), rhs.type.toString());
 		}
 
-		return new ASTValue(lhs.numValue-rhs.numValue);
+		return new Variable(lhs.numValue-rhs.numValue);
 	}
 }

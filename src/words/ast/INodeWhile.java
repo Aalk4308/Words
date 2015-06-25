@@ -1,5 +1,6 @@
 package words.ast;
 
+import words.Variable;
 import words.environment.*;
 import words.exceptions.*;
 
@@ -9,11 +10,11 @@ public class INodeWhile extends INode {
 	}
 
 	@Override
-	public ASTValue eval(Environment environment) throws WordsRuntimeException {
-		ASTValue conditional = children.get(0).eval(environment);
+	public Variable eval(Environment environment) throws WordsRuntimeException {
+		Variable conditional = children.get(0).eval(environment);
 		AST statementList = children.get(1);
 		
-		assert conditional.type == ASTValue.Type.BOOLEAN;
+		assert conditional.type == Variable.Type.BOOLEAN;
 
 		while (conditional.booleanValue == true) {
 			environment.pushNewScope();
